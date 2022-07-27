@@ -1,0 +1,61 @@
+@import '../../styles/variables.scss';
+
+.recommend {
+    width: 100%;
+    padding: 0 0 100px;
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .select {
+                padding: 0 15px;
+                position: relative;
+                cursor: pointer;
+                color: $mainColor;
+
+                .backgr-img {
+                    width: 100%;
+                    height: 290px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+
+                .text-right {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 60px;
+
+                    &.active {
+                        left: 60px;
+                    }
+
+                    h3 {
+                        font-size: 30px;
+                        font-weight: 500;
+                        margin-bottom: 16px;
+                    }
+
+                    p {
+                        color: $textColor;
+                    }
+                }
+            }
+        }
+    }
+}

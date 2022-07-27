@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.tab {
+    font-size: 18px;
+    margin: 0 25px;
+    font-weight: 500;
+    transition: 0.4s;
+    cursor: pointer;
+
+    &:hover {
+        color: $orangeColor;
+    }
+
+    &.active {
+        color: $orangeColor;
+    }
+}

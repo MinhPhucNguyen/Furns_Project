@@ -1,0 +1,208 @@
+@import '../../styles/variables.scss';
+
+.contact-page {
+    width: 100%;
+    height: 100%;
+
+    .contact-page-heading {
+        width: 100%;
+        padding: 80px 0;
+        margin-bottom: 100px;
+        background-color: $backgroudColor;
+
+        .container {
+            width: 80%;
+            padding: 0 15px;
+            margin: 0 auto;
+            text-align: center;
+
+            .contact-page-title {
+                font-size: 32px;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+
+            & span a {
+                color: $mainColor;
+                text-decoration: none;
+                margin-right: 4px;
+            }
+        }
+    }
+
+    .all-contact {
+        width: 80%;
+        padding: 0 15px;
+        margin: 0 auto;
+
+        .contact-form {
+            display: flex;
+            height: 780px;
+
+            .contact-form-left {
+                flex: 3;
+                margin: 0 15px;
+                padding: 50px 30px;
+                background-color: rgb(245, 245, 245);
+                height: 100%;
+
+                > h2 {
+                    font-weight: 500;
+                    margin-bottom: 30px;
+                }
+
+                .phone-info,
+                .email-info,
+                .address-info {
+                    display: flex;
+                    margin-bottom: 20px;
+                    color: $textColor;
+
+                    > h3 {
+                        font-size: 15px;
+                        color: $mainColor;
+                        min-width: 80px;
+                    }
+                }
+
+                .phone-info {
+                    p {
+                        margin-bottom: 10px;
+                        cursor: pointer;
+                        transition: 0.5s;
+
+                        &:hover {
+                            color: $orangeColor;
+                        }
+                    }
+                }
+
+                .email-info {
+                    p {
+                        margin-bottom: 10px;
+                        cursor: pointer;
+
+                        a {
+                            color: $textColor;
+                            text-decoration: none;
+                            transition: 0.5s;
+
+                            &:hover {
+                                color: $orangeColor;
+                            }
+                        }
+                    }
+                }
+
+                .address-info {
+                    p {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+
+            .contact-form-right {
+                flex: 8;
+                background-color: rgb(245, 245, 245);
+                margin: 0 15px;
+                padding: 50px 30px;
+                display: block;
+
+                > h2 {
+                    font-weight: 500;
+                    margin-bottom: 30px;
+                }
+
+                .form-input {
+                    width: 100%;
+
+                    .form-group {
+                        width: 100%;
+                        margin-bottom: 25px;
+
+                        .form-group-row {
+                            display: flex;
+                            margin: 0 -15px;
+
+                            .left,
+                            .right {
+                                padding: 0 15px;
+                                width: 50%;
+
+                                .name-user {
+                                    font-size: 14px;
+                                    font-weight: 500;
+                                }
+
+                                input {
+                                    width: 100%;
+                                    padding: 12px 15px;
+                                    border: none;
+                                    outline: $orangeColor;
+                                    border-radius: 5px;
+                                    margin-top: 10px;
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .input-subject {
+                                padding: 0 15px;
+                                width: 100%;
+
+                                .name-user {
+                                    font-size: 14px;
+                                    font-weight: 500;
+                                }
+
+                                input {
+                                    width: 100%;
+                                    padding: 12px 15px;
+                                    border: none;
+                                    outline: $orangeColor;
+                                    border-radius: 5px;
+                                    margin-top: 10px;
+                                    font-size: 14px;
+                                    display: inline-block;
+                                }
+                            }
+
+                            .input-message {
+                                padding: 0 15px;
+                                width: 100%;
+
+                                .name-user {
+                                    font-size: 14px;
+                                    font-weight: 500;
+                                }
+
+                                textarea {
+                                    width: 100%;
+                                    height: 284px;
+                                    font-size: 14px;
+                                    border: none;
+                                    margin-top: 10px;
+                                    resize: none;
+                                    border-radius: 5px;
+                                }
+                            }
+                        }
+                    }
+                    .send-btn {
+                        width: 100%;
+                        padding: 14px 36px;
+                        border-radius: 5px;
+                        border: none;
+                        background-color: $orangeColor;
+                        color: white;
+                        font-size: 16px;
+                        transition: 0.4s;
+
+                        &:hover {
+                            background-color: $primaryColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

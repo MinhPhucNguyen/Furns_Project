@@ -1,0 +1,89 @@
+@import '../../styles/variables.scss';
+
+.latest-news {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &:hover .arow-left {
+        transform: translateX(60px);
+        opacity: 1;
+    }
+
+    &:hover .arow-right {
+        transform: translateX(-60px);
+        opacity: 1;
+    }
+
+    .arrow {
+        position: absolute;
+        font-size: 30px;
+        background-color: transparent;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        color: $textColor;
+        cursor: pointer;
+        transition: 0.3s;
+        opacity: 0;
+
+        &:hover {
+            background-color: $border;
+        }
+
+        &.arow-left {
+            left: 0;
+        }
+
+        &.arow-right {
+            right: 0;
+        }
+    }
+
+    .container-news {
+        width: calc(80% - 30px);
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .heading {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin-bottom: 52px;
+
+            h2 {
+                font-weight: 600;
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+
+            p {
+                max-width: 475px;
+                color: $textColor;
+                text-align: center;
+            }
+        }
+
+        .news {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+
+            .slide-news {
+                width: 100%;
+                display: flex;
+            }
+        }
+    }
+}

@@ -1,0 +1,106 @@
+@import '../../../styles/variables.scss';
+@mixin stylesofOtherBtn {
+    border-radius: 3px;
+    display: block;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.login {
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.09);
+    padding: 50px 30px;
+    border-radius: 5px;
+
+    .form-login {
+        .email-input,
+        .password-input {
+            width: 100%;
+            margin-bottom: 25px;
+
+            label {
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            input {
+                width: 100%;
+                padding: 12px 15px;
+                line-height: 1;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+
+                &:focus {
+                    outline: 1px solid $orangeColor;
+                }
+            }
+        }
+
+        .signin-btn {
+            width: 100%;
+            margin-bottom: 25px;
+
+            button {
+                width: 100%;
+                padding: 12px 15px;
+                border-radius: 3px;
+                outline: none;
+                border: none;
+                color: white;
+                font-size: 16px;
+                background-color: $orangeColor;
+                transition: all 0.4s;
+
+                &:hover {
+                    background-color: $primaryColor;
+                }
+            }
+        }
+
+        .other-btn {
+            display: flex;
+            margin-right: -15px;
+            margin-left: -15px;
+
+            .btn-left,
+            .btn-right {
+                width: 50%;
+                padding: 0 15px;
+
+                > a {
+                    @include stylesofOtherBtn();
+                }
+            }
+
+            .btn-left {
+                > a {
+                    background-color: rgb(47, 51, 58);
+                    color: white;
+
+                    &:hover {
+                        background-color: $border;
+                        color: rgb(47, 51, 58);
+                    }
+                }
+            }
+
+            .btn-right {
+                > a {
+                    background-color: $border;
+                    color: rgb(47, 51, 58);
+
+                    &:hover {
+                        background-color: rgb(47, 51, 58);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

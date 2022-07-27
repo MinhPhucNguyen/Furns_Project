@@ -1,0 +1,28 @@
+@import '../../../styles/variables.scss';
+
+.table-product {
+    width: 100%;
+    display: block;
+
+    table {
+        width: 100%;
+        border: 1px solid $border;
+        border-collapse: collapse;
+        margin-bottom: 25px;
+
+        thead {
+            tr {
+                border-collapse: collapse;
+
+                .info-product {
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    background-color: $border;
+                    border: none;
+                    padding: 21px 45px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,130 @@
+@import '../../../styles/variables.scss';
+
+.sub-heading {
+    width: 100%;
+    height: 43px;
+    background-color: rgb(47, 51, 58);
+    padding: 11px 0;
+
+    .container {
+        color: white;
+        font-size: 13px;
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+
+        .left {
+            color: $orangeColor;
+            font-style: italic;
+        }
+
+        .right {
+            display: flex;
+
+            .languages {
+                width: 120px;
+                position: relative;
+                cursor: pointer;
+
+                .language-btn {
+                    padding: 0 10px;
+                    border-right: 1px solid rgb(67, 71, 78);
+                    text-align: right;
+
+                    & > span {
+                        width: 100px;
+                        transition: 0.4s;
+                    }
+
+                    &:hover {
+                        color: $orangeColor;
+                    }
+                }
+
+                .language-list {
+                    color: $mainColor;
+                    background-color: white;
+                    list-style-type: none;
+                    padding: 0 15px;
+                    position: absolute;
+                    top: 34px;
+                    left: 0;
+                    box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
+                    z-index: 9;
+
+                    .language-item {
+                        color: $textColor;
+                        padding: 10px;
+                        border-bottom: 1px solid rgb(235, 235, 235);
+                        line-height: 1.5;
+
+                        &:last-child {
+                            border: none;
+                        }
+
+                        & > span:hover {
+                            transition: 0.5s;
+                            color: $orangeColor;
+                        }
+                    }
+                }
+            }
+
+            .currency-unit {
+                position: relative;
+
+                .currency-btn {
+                    width: 90px;
+                    cursor: pointer;
+                    padding: 0 10px;
+                    text-align: right;
+
+                    & > span {
+                        transition: 0.4s;
+                    }
+
+                    &:hover {
+                        color: $orangeColor;
+                    }
+                }
+
+                .currency-list {
+                    color: $mainColor;
+                    background-color: white;
+                    list-style-type: none;
+                    padding: 0 15px;
+                    position: absolute;
+                    top: 34px;
+                    left: 0;
+                    box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
+                    z-index: 9;
+
+                    .currency-item {
+                        width: 75px;
+                        color: $textColor;
+                        padding: 10px;
+                        border-bottom: 1px solid rgb(235, 235, 235);
+                        line-height: 1.5;
+
+                        &:last-child {
+                            border: none;
+                        }
+
+                        & > span:hover {
+                            transition: 0.5s;
+                            color: $orangeColor;
+                        }
+                    }
+                }
+            }
+
+            .icon {
+                margin-left: 7px;
+                transition: 0.5s;
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+
+.circles-nav {
+    width: 100%;
+    padding: 100px 0;
+
+    .container {
+        padding: 0 15px;
+        margin: 0 auto;
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            .circles {
+                width: 210px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 20px;
+
+                a:hover {
+                    border-color: $orangeColor;
+                }
+
+                & > .circle-item {
+                    width: 180px;
+                    height: 180px;
+                    color: black;
+                    text-decoration: none;
+                    border: 2px solid $mainColor;
+                    border-radius: 50%;
+                    margin: auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    transition: 0.4s;
+
+                    .circle-item:hover {
+                        border-color: transparent;
+                    }
+
+                    .circle-title {
+                        margin-top: 12px;
+                        color: $textColor;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

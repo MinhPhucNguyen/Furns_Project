@@ -1,0 +1,145 @@
+@import '../../../styles/variables.scss';
+@mixin stylesofInput {
+    width: 100%;
+    padding: 12px 15px;
+    line-height: 1;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    &:focus {
+        outline: 1px solid $orangeColor;
+    }
+}
+
+.signup {
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.09);
+    padding: 50px 30px;
+    border-radius: 5px;
+
+    .form-signup {
+        .row {
+            display: flex;
+            margin-bottom: 25px;
+            margin-left: -15px;
+            margin-right: -15px;
+
+            .firstname-input,
+            .lastname-input {
+                width: 50%;
+                padding: 0 15px;
+
+                > label {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                > input {
+                    @include stylesofInput();
+                }
+            }
+
+            .info-input {
+                flex: 1;
+                padding: 0 15px;
+
+                > label {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                > input {
+                    @include stylesofInput();
+                }
+            }
+        }
+
+        .checkbox-policy {
+            .checkbox {
+                display: flex;
+                align-items: center;
+
+                > input[type='checkbox'] {
+                    width: 1em;
+                    height: 1em;
+                    margin-right: 5px;
+                    cursor: pointer;
+                    outline: none;
+                }
+
+                label {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+            }
+
+            p {
+                margin-top: 16px;
+                font-size: 14px;
+                color: rgb(100, 100, 100);
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .btn {
+            display: flex;
+            margin-left: -15px;
+            margin-right: -15px;
+            display: flex;
+            flex-direction: column;
+            padding: 0 15px;
+
+            .signup-btn,
+            .bottom-btn {
+                width: 100%;
+                padding: 15px;
+                margin-top: 25px;
+            }
+
+            .signup-btn {
+                background-color: $orangeColor;
+                color: white;
+                text-align: center;
+                border-radius: 3px;
+                font-weight: 500;
+                transition: 0.4s;
+                outline: none;
+                border: none;
+                font-size: 16px;
+
+                &.disable {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+
+                &:hover {
+                    background-color: rgb(47, 51, 58);
+                    color: white;
+                }
+            }
+
+            .bottom-btn {
+                background-color: rgb(235, 235, 235);
+                text-align: center;
+                text-decoration: none;
+                color: rgb(59, 72, 99);
+                font-weight: 500;
+                transition: 0.4s;
+                border-radius: 3px;
+                font-size: 16px;
+
+                &:hover {
+                    background-color: rgb(47, 51, 58);
+                    color: white;
+                }
+            }
+        }
+    }
+}

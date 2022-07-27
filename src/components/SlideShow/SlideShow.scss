@@ -1,0 +1,149 @@
+@import '../../styles/variables.scss';
+
+.works {
+    height: 750px;
+    background-color: $backgroudSlider;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    &:hover > .arrow {
+        opacity: 1;
+    }
+
+    .arrow {
+        font-size: 24px;
+        color: black;
+        position: absolute;
+        cursor: pointer;
+        background-color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        color: $textColor;
+        transition: 0.4s;
+        opacity: 0;
+
+        &:hover {
+            background-color: $orangeColor;
+        }
+
+        &.arrow-left {
+            left: 30px;
+        }
+
+        &.arrow-right {
+            right: 30px;
+        }
+
+        &.active {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    .slider {
+        height: 100%;
+        display: flex;
+        position: absolute;
+        left: 0;
+
+        .container {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .item {
+                height: 100%;
+                width: 80vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .left,
+                .right {
+                    padding: 0 15px;
+                }
+
+                .right {
+                    flex: 6;
+                    text-align: center;
+
+                    .img {
+                        object-fit: cover;
+                    }
+                }
+
+                .left {
+                    flex: 5;
+                    h4 {
+                        font-size: 24px;
+                        font-weight: 500;
+                        color: $textColor;
+                    }
+
+                    h2 {
+                        font-size: 72px;
+                        font-weight: 600;
+                        margin-bottom: 10px;
+                    }
+
+                    p {
+                        max-width: 500px;
+                        color: $textColor;
+                        font-size: 16px;
+                    }
+
+                    a {
+                        color: white;
+                        font-weight: 500;
+                        background-color: $orangeColor;
+                        text-decoration: none;
+                        display: inline-block;
+                        padding: 14px 36px;
+                        margin-top: 60px;
+                        transition: 0.5s;
+
+                        &:hover {
+                            background-color: $mainColor;
+                            color: $orangeColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .radio {
+        width: 100%;
+        position: absolute;
+        bottom: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .radioSlide {
+            width: 16px;
+            height: 16px;
+            border: 1px solid $mainColor;
+            border-radius: 50%;
+            margin: 0 4px;
+            transition: 0.4s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $orangeColor;
+                border-color: $orangeColor;
+            }
+
+            &.active {
+                background-color: $orangeColor;
+                border-color: $orangeColor;
+            }
+        }
+    }
+}

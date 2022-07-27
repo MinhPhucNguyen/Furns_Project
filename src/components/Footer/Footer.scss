@@ -1,0 +1,169 @@
+@import '../../styles/variables.scss';
+
+.footer {
+    margin-top: 100px;
+    padding: 100px 0;
+    background-color: rgb(47, 51, 58);
+    color: white;
+
+    .footer-container {
+        width: calc(80% - 30px);
+        margin: 0 auto;
+        padding: 0 15px;
+
+        .footer-row {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .about-us {
+                max-width: 350px;
+                padding: 0 15px;
+                font-size: 14px;
+                line-height: 24px;
+
+                & > h4 {
+                    font-weight: 500;
+                    margin-bottom: 15px;
+                }
+
+                .about-icon {
+                    display: flex;
+
+                    > li {
+                        list-style-type: none;
+                        margin-top: 15px;
+                        margin-right: 18px;
+                        font-size: 16px;
+                        height: 30px;
+                        width: 30px;
+                        border-radius: 50%;
+                        text-align: center;
+                        line-height: 30px;
+                        transition: 0.4s;
+
+                        &:hover {
+                            background-color: $orangeColor;
+                        }
+                    }
+                }
+            }
+
+            .information {
+                font-size: 14px;
+                & > h4 {
+                    font-weight: 500;
+                    margin-bottom: 15px;
+                }
+                .information-list {
+                    list-style: none;
+                    font-size: 14px;
+
+                    > li {
+                        margin-bottom: 15px;
+                        transition: 0.3s;
+
+                        a {
+                            color: white;
+                            text-decoration: none;
+
+                            &:hover {
+                                transform: translateX(6px);
+                                color: $orangeColor;
+                            }
+                        }
+
+                        &:hover {
+                            transform: translateX(6px);
+                            color: $orangeColor;
+                        }
+                    }
+                }
+            }
+
+            .my-account {
+                font-size: 14px;
+
+                & > h4 {
+                    font-weight: 500;
+                    margin-bottom: 15px;
+                }
+
+                .myaccount-container {
+                    .myaccount-list {
+                        font-size: 14px;
+                        list-style: none;
+
+                        > li {
+                            margin-bottom: 15px;
+                            transition: 0.3s;
+
+                            a {
+                                color: white;
+                                text-decoration: none;
+
+                                &:hover {
+                                    transform: translateX(6px);
+                                    color: $orangeColor;
+                                }
+                            }
+
+                            &:hover {
+                                transform: translateX(6px);
+                                color: $orangeColor;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .newsletter {
+                width: calc(100% / 4);
+                font-size: 14px;
+                & > h4 {
+                    margin-bottom: 15px;
+                    font-weight: 500;
+                }
+
+                .newletter-container {
+                    input {
+                        height: 50px;
+                        width: 100%;
+                        padding-left: 15px;
+                        background-color: transparent;
+                        outline: none;
+                        border: 1px solid $textColor;
+                        margin-bottom: 15px;
+
+                        &::placeholder {
+                            color: white;
+                            font-size: 14px;
+                        }
+                    }
+
+                    .newsletter-btn {
+                        height: 50px;
+                        padding: 17px 30px;
+                        display: inline-block;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $orangeColor;
+                        border: none;
+                        outline: none;
+                        color: white;
+                        transition: 0.4s;
+
+                        &:hover {
+                            background-color: rgb(33, 33, 33);
+                        }
+
+                        .icon-btn {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
