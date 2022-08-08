@@ -48,4 +48,428 @@
             }
         }
     }
+    .product-detail {
+        width: 80%;
+        padding: 0 15px;
+        margin: 0 auto;
+
+        .product-detail-row-1 {
+            width: 100%;
+            margin: 0 -15px;
+            display: flex;
+
+            .product-img-left {
+                flex: 4;
+                height: 500px;
+                padding: 0 15px;
+
+                .image-slide {
+                    height: 100%;
+
+                    .image {
+                        height: 100%;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+
+            .product-info-right {
+                flex: 6;
+                padding: 0 15px;
+
+                .sku {
+                    font-size: 13px;
+                    margin-bottom: 10px;
+                    color: $textColor;
+
+                    span {
+                        color: $mainColor;
+                        margin-right: 5px;
+                        font-weight: 600;
+                    }
+                }
+
+                .availability {
+                    font-size: 13px;
+                    span {
+                        font-weight: 600;
+                        margin-right: 4px;
+                    }
+                }
+
+                .name-of-product {
+                    font-weight: 500;
+                    font-size: 22px;
+                    margin: 10px 0;
+                }
+                .price-of-product {
+                    font-weight: 400;
+                    font-size: 22px;
+                    margin: 10px 0;
+                    display: flex;
+                    align-items: center;
+
+                    .old-price {
+                        text-decoration: line-through;
+                        color: rgb(153, 153, 153);
+                        margin-right: 10px;
+
+                        &.hide-old-price {
+                            display: none;
+                        }
+                    }
+                }
+
+                p {
+                    font-size: 14px;
+                    line-height: 2;
+                    color: $textColor;
+                }
+
+                .quantity-cart-product {
+                    margin-top: 30px;
+                    display: flex;
+
+                    .quantity-btn {
+                        margin-right: 15px;
+                        border: 1px solid $orangeColor;
+
+                        .decrease-quantity,
+                        .increase-quantity {
+                            height: 100%;
+                            border: none;
+                            outline: none;
+                            padding: 0 10px;
+                            font-size: 18px;
+                            font-weight: 500;
+                            background-color: transparent;
+                            cursor: pointer;
+                        }
+
+                        .decrease-quantity {
+                            border-right: 1px solid $orangeColor;
+
+                            &:hover {
+                                background-color: $orangeColor;
+                                color: white;
+                            }
+                        }
+
+                        .increase-quantity {
+                            border-left: 1px solid $orangeColor;
+                            transition: 0.3s;
+
+                            &:hover {
+                                background-color: $orangeColor;
+                                color: white;
+                            }
+                        }
+
+                        input {
+                            width: 80px;
+                            height: calc(100% - 2px);
+                            border: none;
+                            outline: none;
+                            text-align: center;
+                            font-size: 16px;
+                            font-weight: 500;
+                        }
+                    }
+
+                    .add-to-cart-btn {
+                        padding: 15px 30px;
+                        color: white;
+                        font-size: 18px;
+                        text-align: center;
+                        display: inline-block;
+                        font-weight: 500;
+                        background-color: $orangeColor;
+                        border: none;
+                        outline: none;
+                        transition: 0.3s;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: $primaryColor;
+                        }
+
+                        &.disable-btn {
+                            cursor: default;
+                            opacity: 0.4;
+
+                            &:hover {
+                                background-color: $orangeColor;
+                            }
+                        }
+                    }
+                }
+
+                .wishlist-compare-btn {
+                    display: flex;
+                    margin-top: 20px;
+                    font-size: 14px;
+                    color: $textColor;
+
+                    .wishlist-btn,
+                    .compare-btn {
+                        transition: 0.3s;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $orangeColor;
+                        }
+                    }
+
+                    .wishlist-btn > .icon,
+                    .compare-btn > .icon {
+                        margin-right: 5px;
+                    }
+
+                    .wishlist-btn {
+                        margin-right: 40px;
+                    }
+                }
+
+                .share-media {
+                    margin-top: 20px;
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+
+                    h4 {
+                        font-weight: 500;
+                    }
+
+                    a {
+                        margin-left: 15px;
+                        font-size: 18px;
+                        text-decoration: none;
+                        color: $textColor;
+                        transition: 0.3s;
+
+                        &:hover {
+                            color: $orangeColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        .product-detail-row-2 {
+            margin-top: 100px;
+            .tab-control {
+                display: block;
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                cursor: pointer;
+                position: relative;
+
+                .choose-control {
+                    margin: 0 30px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    padding-bottom: 15px;
+                    position: relative;
+
+                    &:hover > .border-bottom {
+                        background-color: $orangeColor;
+                    }
+
+                    .border-bottom {
+                        position: absolute;
+                        left: 0px;
+                        right: 0px;
+                        bottom: -1.5px;
+                        height: 3px;
+                        width: 100%;
+                        transition: all 0.4s;
+
+                        &.display-color {
+                            background-color: $orangeColor;
+                        }
+                    }
+                }
+            }
+
+            .description-reviews-control {
+                border: 1px solid $border;
+                padding: 30px;
+
+                .description {
+                    font-size: 15px;
+                    color: $textColor;
+
+                    p {
+                        margin-bottom: 10px;
+                    }
+
+                    &.hide-content {
+                        display: none;
+                    }
+                }
+
+                .reviews {
+                    display: flex;
+                    margin: 0 -15px;
+
+                    &.hide-content {
+                        display: none;
+                    }
+
+                    .reviews-left {
+                        display: flex;
+                        flex: 7;
+                        padding: 0 15px;
+                        align-items: flex-start;
+
+                        .user-review {
+                            display: flex;
+                            align-items: center;
+
+                            .review-img {
+                                margin-right: 20px;
+
+                                div {
+                                    width: 120px;
+                                    height: 120px;
+                                    border: 1px solid $border;
+                                    border-radius: 50%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    .user-icon {
+                                        font-size: 40px;
+                                        color: $textColor;
+                                    }
+                                }
+                            }
+
+                            .review-content {
+                                h4 {
+                                    font-weight: 500;
+                                    margin-bottom: 5px;
+                                }
+
+                                .star-rating {
+                                    font-size: 12px;
+                                    margin-bottom: 5px;
+                                }
+
+                                .message-review {
+                                    font-size: 14px;
+                                    color: $textColor;
+                                }
+                            }
+                        }
+                    }
+
+                    .reviews-right {
+                        flex: 5;
+                        padding: 0 15px;
+
+                        h2 {
+                            font-weight: 500;
+                            margin-bottom: 18px;
+                        }
+
+                        .form {
+                            font-size: 14px;
+                            .your-rating {
+                                margin-bottom: 20px;
+
+                                span {
+                                    font-weight: 500;
+                                    margin-right: 5px;
+                                }
+                            }
+
+                            .message {
+                                width: 100%;
+                                margin-bottom: 15px;
+                                label {
+                                    display: block;
+                                    margin-bottom: 5px;
+                                    font-weight: 500;
+                                }
+
+                                .your-message {
+                                    width: calc(100% - 2px);
+                                    padding: 12px 15px;
+                                    font-size: 14px;
+                                    border: 1px solid $border;
+                                    border-radius: 3px;
+                                    height: 150px;
+                                    outline-color: $orangeColor;
+                                    resize: none;
+                                }
+                            }
+                            .your-info {
+                                margin-bottom: 15px;
+                                display: flex;
+                                margin: 0 -15px;
+                                margin-bottom: 30px;
+                                div {
+                                    padding: 0 15px;
+                                    width: 50%;
+                                    label {
+                                        margin-bottom: 5px;
+                                        display: block;
+                                        font-weight: 500;
+                                    }
+
+                                    input {
+                                        padding: 12px 15px;
+                                        width: 100%;
+                                        font-size: 14px;
+                                        border: 1px solid $border;
+                                        outline-color: $orangeColor;
+                                        border-radius: 3px;
+                                    }
+                                }
+                            }
+
+                            .submit-btn {
+                                button {
+                                    padding: 10px 30px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: white;
+                                    background-color: $orangeColor;
+                                    border: none;
+                                    outline: none;
+                                    border-radius: 3px;
+                                    transition: 0.3s;
+
+                                    &:hover {
+                                        background-color: $primaryColor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .product-detail-row-3 {
+            margin-top: 100px;
+
+            .related-product {
+                .related-product-title {
+                    font-size: 36px;
+                    font-weight: 500;
+                    margin-bottom: 50px;
+                    padding: 0 15px;
+                }
+                margin: 0 -15px;
+            }
+        }
+    }
 }

@@ -29,6 +29,10 @@ function HeaderPageRoute({ children }) {
                 setTitle('COMPARE');
                 setSubTitle('COMPARE');
                 break;
+            case '/account':
+                setTitle('DASHBOARD');
+                setSubTitle('ACCOUNT');
+                break;
             default:
                 setTitle('');
                 setSubTitle('');

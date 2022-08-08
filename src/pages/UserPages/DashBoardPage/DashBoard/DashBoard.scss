@@ -1,0 +1,20 @@
+@import '../../../../styles/variables.scss';
+
+.dashboard {
+    .dashboard-heading {
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        border-bottom: 2px dashed $border;
+        h3 {
+            font-weight: 500;
+        }
+    }
+
+    & p:not(:last-child) {
+        margin-bottom: 15px;
+    }
+
+    p {
+        color: $textColor;
+    }
+}

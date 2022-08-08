@@ -7,6 +7,7 @@ import store from './redux/store';
 //
 import App from './App';
 import GlobalStyles from './styles/GlobalStyles';
+import { AuthProvider } from './Context/AuthProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,9 @@ root.render(
         <Provider store={store}>
             <BrowserRouter>
                 <GlobalStyles>
-                    <App />
+                    <AuthProvider>
+                        <App />
+                    </AuthProvider>
                 </GlobalStyles>
             </BrowserRouter>
         </Provider>

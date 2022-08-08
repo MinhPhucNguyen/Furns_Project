@@ -1,11 +1,12 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './ProductinCartModal.scss';
 import { cartActions } from '../../../../pages/UserPages/CartPage/CartSlice';
 import { useDispatch } from 'react-redux';
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-function ProductinCartModal({ id, img, alt, nameProduct, newPrice, quantity }) {
+function ProductinCartModal({ id, img, alt, nameProduct, newPrice, quantity, clickOpenModalCart }) {
     const dispatch = useDispatch();
 
     const handleDecreaseQuantity = () => {
@@ -20,19 +21,35 @@ function ProductinCartModal({ id, img, alt, nameProduct, newPrice, quantity }) {
                 alt,
                 nameProduct,
                 newPrice,
-                quantity,
             }),
         );
     };
 
     return (
         <div className="product-in-cart">
-            <div className="image-of-product">
+            <Link
+                to={`/product/${id}`}
+                className="image-of-product"
+                onClick={(e) => {
+                    if (e.target === e.currentTarget) {
+                        clickOpenModalCart();
+                    }
+                }}
+            >
                 <img src={img} alt={alt} />
-            </div>
+            </Link>
             <div className="info-of-product">
                 <div>
-                    <a href="/">{nameProduct}</a>
+                    <Link
+                        to={`/product/${id}`}
+                        onClick={(e) => {
+                            if (e.target === e.currentTarget) {
+                                clickOpenModalCart();
+                            }
+                        }}
+                    >
+                        {nameProduct}
+                    </Link>
                     <div className="quantity-and-price">
                         {quantity}
                         <span className="multiply">X</span>

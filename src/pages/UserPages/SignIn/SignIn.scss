@@ -25,7 +25,7 @@
 
             label {
                 font-size: 14px;
-                font-weight: 600;
+                font-weight: 500;
             }
 
             input {
@@ -39,6 +39,11 @@
                 &:focus {
                     outline: 1px solid $orangeColor;
                 }
+            }
+
+            .error-message {
+                font-size: 13px;
+                color: red;
             }
         }
 
@@ -56,6 +61,7 @@
                 font-size: 16px;
                 background-color: $orangeColor;
                 transition: all 0.4s;
+                cursor: pointer;
 
                 &:hover {
                     background-color: $primaryColor;
@@ -63,7 +69,55 @@
             }
         }
 
-        .other-btn {
+        .other-btn1 {
+            margin-right: -15px;
+            margin-left: -15px;
+            margin-bottom: 20px;
+
+            .btn-login-google,
+            .btn-login-facebook {
+                width: 100%;
+                padding: 0 15px;
+
+                > div {
+                    @include stylesofOtherBtn();
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+
+                    .login-icon {
+                        font-size: 18px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .btn-login-google {
+                margin-bottom: 20px;
+                > div {
+                    background-color: $border;
+                    color: rgb(47, 51, 58);
+
+                    &:hover {
+                        background-color: #ccc;
+                    }
+                }
+            }
+
+            .btn-login-facebook {
+                > div {
+                    background-color: $border;
+                    color: rgb(47, 51, 58);
+
+                    &:hover {
+                        background-color: #ccc;
+                    }
+                }
+            }
+        }
+
+        .other-btn2 {
             display: flex;
             margin-right: -15px;
             margin-left: -15px;

@@ -1,15 +1,28 @@
 import './Footer.scss';
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faLinkedinIn, faYoutube, faPinterest } from '@fortawesome/free-brands-svg-icons';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { auth } from '../../firebase/firebaseConfig';
+import { signOut } from 'firebase/auth';
 
 function Footer() {
+    const navigate = useNavigate();
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, []);
+
+    const handleClickLogOut = () => {
+        signOut(auth)
+            .then(() => {
+                navigate('/signin');
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
 
     return (
         <div className="footer">
@@ -70,16 +83,44 @@ function Footer() {
                                     <Link
                                         to="/signin"
                                         onClick={() => {
+                                            handleClickLogOut();
                                             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
                                         }}
                                     >
                                         Login
                                     </Link>
                                 </li>
-                                <li>My Cart</li>
-                                <li>Wishlist</li>
+                                <li>
+                                    <Link
+                                        to="/cart"
+                                        onClick={() => {
+                                            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                                        }}
+                                    >
+                                        My Cart
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/wishlist"
+                                        onClick={() => {
+                                            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                                        }}
+                                    >
+                                        Wishlist
+                                    </Link>
+                                </li>
                                 <li>Compare</li>
-                                <li>My Account</li>
+                                <li>
+                                    <Link
+                                        to="/account"
+                                        onClick={() => {
+                                            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                                        }}
+                                    >
+                                        My Account
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                     </div>

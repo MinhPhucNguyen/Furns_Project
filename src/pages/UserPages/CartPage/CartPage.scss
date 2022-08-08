@@ -40,8 +40,10 @@
                         color: $orangeColor;
 
                         > span {
+                            width: 120px;
                             margin-left: 35px;
                             color: $mainColor;
+                            text-align: center;
                         }
                     }
                 }

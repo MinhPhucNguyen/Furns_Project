@@ -1,0 +1,266 @@
+@import '../../styles/variables.scss';
+
+.product_detail_modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .product_detail_modal__container {
+        width: 100%;
+        margin: 0 -15px;
+        display: flex;
+        background-color: white;
+        max-width: 960px;
+        padding: 30px 15px;
+        position: relative;
+
+        .product-img-left {
+            flex: 4;
+            height: 500px;
+            padding: 0 15px;
+
+            .image-slide {
+                height: 100%;
+
+                .image {
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+
+        .product-info-right {
+            flex: 6;
+            padding: 0 15px;
+
+            .sku {
+                font-size: 13px;
+                margin-bottom: 10px;
+                color: $textColor;
+
+                span {
+                    color: $mainColor;
+                    margin-right: 5px;
+                    font-weight: 600;
+                }
+            }
+
+            .availability {
+                font-size: 13px;
+                span {
+                    font-weight: 600;
+                    margin-right: 4px;
+                }
+            }
+
+            .name-of-product {
+                font-weight: 500;
+                font-size: 22px;
+                margin: 10px 0;
+            }
+            .price-of-product {
+                font-weight: 400;
+                font-size: 22px;
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+
+                .old-price {
+                    text-decoration: line-through;
+                    color: rgb(153, 153, 153);
+                    margin-right: 10px;
+
+                    &.hide-old-price {
+                        display: none;
+                    }
+                }
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 2;
+                color: $textColor;
+            }
+
+            .quantity-cart-product {
+                margin-top: 30px;
+                display: flex;
+
+                .quantity-btn {
+                    margin-right: 15px;
+                    border: 1px solid $orangeColor;
+
+                    .decrease-quantity,
+                    .increase-quantity {
+                        height: 100%;
+                        border: none;
+                        outline: none;
+                        padding: 0 10px;
+                        font-size: 18px;
+                        font-weight: 500;
+                        background-color: transparent;
+                        cursor: pointer;
+                    }
+
+                    .decrease-quantity {
+                        border-right: 1px solid $orangeColor;
+
+                        &:hover {
+                            background-color: $orangeColor;
+                            color: white;
+                        }
+                    }
+
+                    .increase-quantity {
+                        border-left: 1px solid $orangeColor;
+                        transition: 0.3s;
+
+                        &:hover {
+                            background-color: $orangeColor;
+                            color: white;
+                        }
+                    }
+
+                    input {
+                        width: 80px;
+                        height: calc(100% - 2px);
+                        border: none;
+                        outline: none;
+                        text-align: center;
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+                }
+
+                .add-to-cart-btn {
+                    padding: 15px 30px;
+                    color: white;
+                    font-size: 18px;
+                    text-align: center;
+                    display: inline-block;
+                    font-weight: 500;
+                    background-color: $orangeColor;
+                    border: none;
+                    outline: none;
+                    transition: 0.3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $primaryColor;
+                    }
+
+                    &.disable-btn {
+                        cursor: default;
+                        opacity: 0.4;
+
+                        &:hover {
+                            background-color: $orangeColor;
+                        }
+                    }
+                }
+            }
+
+            .wishlist-compare-btn {
+                display: flex;
+                margin-top: 20px;
+                font-size: 14px;
+                color: $textColor;
+
+                .wishlist-btn,
+                .compare-btn {
+                    transition: 0.3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $orangeColor;
+                    }
+                }
+
+                .wishlist-btn > .icon,
+                .compare-btn > .icon {
+                    margin-right: 5px;
+                }
+
+                .wishlist-btn {
+                    margin-right: 40px;
+                }
+            }
+
+            .share-media {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+
+                h4 {
+                    font-weight: 500;
+                }
+
+                a {
+                    margin-left: 15px;
+                    font-size: 18px;
+                    text-decoration: none;
+                    color: $textColor;
+                    transition: 0.3s;
+
+                    &:hover {
+                        color: $orangeColor;
+                    }
+                }
+            }
+        }
+    }
+
+    .close_modal__btn {
+        position: absolute;
+        background-color: $orangeColor;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        top: -13px;
+        right: -13px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & > div {
+            transform-origin: center;
+        }
+
+        &:hover > .x2,
+        &:hover > .x1 {
+            transform: rotate(180deg);
+        }
+
+        .x1,
+        .x2 {
+            position: absolute;
+            top: calc(50% - 1px);
+            width: 16px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.6s ease;
+        }
+
+        .x1 {
+            transform: rotate(45deg);
+        }
+
+        .x2 {
+            transform: rotate(-45deg);
+        }
+    }
+}

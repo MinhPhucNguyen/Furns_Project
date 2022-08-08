@@ -20,6 +20,7 @@ import WishlistPage from '../pages/UserPages/WishlistPage';
 import ComparePage from '../pages/UserPages/ComparePage';
 import NewsDetails from '../pages/NewsDetails';
 import ProductDetail from '../pages/ProductDetail';
+import DashBoardPage from '../pages/UserPages/DashBoardPage';
 
 function RoutesPage() {
     return (
@@ -36,13 +37,14 @@ function RoutesPage() {
             <Route path="/collection/hospital-bed" element={<HospitalBed />} />
             <Route path="/collection/hospital-utility" element={<HospitalUtility />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/signin" element={<SignInPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/wishlist" element={<WishlistPage />} />
             <Route path="/compare" element={<ComparePage />} />
             <Route path="/blog/:newsId" element={<NewsDetails />} />
             <Route path="/product/:idProduct" element={<ProductDetail />} />
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path="/account" element={<DashBoardPage />} />
         </Routes>
     );
 }

@@ -1,11 +1,13 @@
 import './Heading.scss';
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../../../images/75.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faUser, faBagShopping, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import ProductinCartModal from './ProductinCartModal';
+import { useLocation } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const userItem = [
     {
@@ -30,13 +32,46 @@ const userItem = [
     },
 ];
 
+const userItem2 = [
+    {
+        id: 1,
+        display: 'My Account',
+        path: '/account',
+    },
+    {
+        id: 2,
+        display: 'Cart',
+        path: '/cart',
+    },
+    {
+        id: 3,
+        display: 'Wishlist',
+        path: '/wishlist',
+    },
+    {
+        id: 4,
+        display: 'Compare',
+        path: '/compare',
+    },
+    {
+        id: 5,
+        display: 'Logout',
+        path: '/logout',
+    },
+];
+
 function Heading() {
     let total = 0;
+    const location = useLocation();
     const [menuOpenUser, setMenuOpenUser] = useState(false);
     const [modalSearchOpen, setModalSearchOpen] = useState(false);
     const [modalCartOpen, setModalCartOpen] = useState(false);
+    const [userList, setUserList] = useState(userItem);
     const quantity = useSelector((state) => state.cart.totalQuantity);
     const productsListinCart = useSelector((state) => state.cart.productsList);
+
+    const user = useContext(AuthContext);
+    console.log(user);
 
     productsListinCart.forEach((item) => {
         total += item.totalPrice;
@@ -44,6 +79,10 @@ function Heading() {
 
     const clickOpenMenuUser = () => {
         setMenuOpenUser((e) => !e);
+
+        if (user.currentUser) {
+            setUserList(userItem2);
+        }
     };
 
     const clickOpenModalSearch = () => {
@@ -71,7 +110,7 @@ function Heading() {
                             <FontAwesomeIcon icon={faUser} className="icon" />
                             {menuOpenUser && (
                                 <ul className="user-list">
-                                    {userItem.map((item) => (
+                                    {userList.map((item) => (
                                         <li className="user-item" key={item.id}>
                                             <Link to={item.path}>{item.display}</Link>
                                         </li>
@@ -143,6 +182,7 @@ function Heading() {
                             {productsListinCart.length > 0 ? (
                                 productsListinCart.map((item) => (
                                     <ProductinCartModal
+                                        clickOpenModalCart={clickOpenModalCart}
                                         key={item.id}
                                         id={item.id}
                                         img={item.img}

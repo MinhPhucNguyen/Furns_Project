@@ -75,9 +75,9 @@ function OurProducts() {
                         ))}
                     </ul>
                     <div className="products">
-                        {data.map((item, index) => (
+                        {data.map((item) => (
                             <Product
-                                key={index}
+                                key={item.id}
                                 id={item.id}
                                 nameProduct={item.nameProduct}
                                 img={item.img}

@@ -67,38 +67,6 @@ function SortByControl({
             ? filterHospitalUtilityArr
             : [];
 
-    // useEffect(() => {
-    //     switch (window.location.pathname) {
-    //         case '/products':
-    //             setDataFilter(Products);
-    //             break;
-    //         case '/collection/bedroom':
-    //             setDataFilter(filterBedroomArr);
-    //             break;
-    //         case '/collection/dining':
-    //             setDataFilter(filterDiningArr);
-    //             break;
-    //         case '/collection/living':
-    //             setDataFilter(filterLivingArr);
-    //             break;
-    //         case '/collection/lounge':
-    //             setDataFilter(filterLoungeArr);
-    //             break;
-    //         case '/collection/office-chair':
-    //             setDataFilter(filterOfficeChairArr);
-    //             break;
-    //         case '/collection/hospital-bed':
-    //             setDataFilter(filterHospitalBedArr);
-    //             break;
-    //         case '/collection/hospital-utility':
-    //             setDataFilter(filterHospitalUtilityArr);
-    //             break;
-    //         default:
-    //             setDataFilter([]);
-    //     }
-    // }, [window.location.pathname]);
-    // console.log(dataFilter);
-
     // Open/Close Dropdown
     const handleClick = () => {
         setClickOpenDropdown((e) => !e);
@@ -197,6 +165,7 @@ function SortByControl({
                                 chooseBtn={item.chooseBtn}
                                 oldPrice={item.oldPrice}
                                 newPrice={item.newPrice}
+                                quantity={item.quantity}
                             />
                         ))}
                     </div>

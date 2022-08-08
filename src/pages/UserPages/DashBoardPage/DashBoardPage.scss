@@ -1,0 +1,53 @@
+@import '../../../styles/variables.scss';
+
+.dashboard-container {
+    display: flex;
+
+    .dashboard-left {
+        flex: 3;
+        padding: 0 15px;
+
+        .dashboard-control-list {
+            list-style: none;
+            border: 1px solid $border;
+
+            .dashboard-control-item {
+                padding: 12px 15px;
+                font-size: 15px;
+                font-weight: 500;
+                text-align: left;
+                border-bottom: 1px solid $border;
+                transition: 0.3s;
+                cursor: pointer;
+
+                &.display {
+                    background-color: $orangeColor;
+                    color: white;
+                }
+
+                &:hover {
+                    background-color: $orangeColor;
+                    color: white;
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .dashboard-icon {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+    .dashboard-right {
+        flex: 9;
+        padding: 0 15px;
+
+        .dashboard-right-container {
+            border: 1px solid $border;
+            padding: 30px;
+        }
+    }
+}

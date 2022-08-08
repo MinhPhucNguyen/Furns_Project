@@ -8,7 +8,6 @@ import { cartActions } from '../../CartPage/CartSlice';
 
 function WishlistItem({ id, img, alt, nameProduct, newPrice, quantity, total, chooseBtn }) {
     const [renameBtn, setRenameBtn] = useState(false);
-    const [reNameofChooseBtn, setNameofChooseBtn] = useState('Add to Cart');
 
     const dispatch = useDispatch();
 
@@ -17,7 +16,7 @@ function WishlistItem({ id, img, alt, nameProduct, newPrice, quantity, total, ch
     };
 
     const handleClickAddtoCart = () => {
-        if (reNameofChooseBtn === 'Add to Cart' && chooseBtn !== 'Out of Stock') {
+        if (chooseBtn === 'Add to Cart' && chooseBtn !== 'Out of Stock') {
             dispatch(
                 cartActions.addToCart({
                     id,
@@ -52,7 +51,11 @@ function WishlistItem({ id, img, alt, nameProduct, newPrice, quantity, total, ch
                     className={chooseBtn === 'Out of Stock' ? 'add-to-cart-btn disable' : 'add-to-cart-btn'}
                     onClick={handleClickAddtoCart}
                 >
-                    {renameBtn ? 'Already Added' : chooseBtn === 'Select Options' ? reNameofChooseBtn : chooseBtn}
+                    {renameBtn
+                        ? 'Already Added'
+                        : chooseBtn === 'Select Options'
+                        ? (chooseBtn = 'Select Options')
+                        : chooseBtn}
                 </button>
             </td>
             <td className="action">

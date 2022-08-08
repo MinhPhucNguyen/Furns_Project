@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Product.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faUpRightFromSquare, faRepeat, faCartShopping, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faUpRightFromSquare, faRepeat, faCartShopping, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../pages/UserPages/CartPage/CartSlice';
 import { wishlistActions } from '../../../pages/UserPages/WishlistPage/WishListSlice';
+import ProductDetailModal from '../../ProductDetailModal';
+import { Products } from '../../../data';
 
 function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, oldPrice, newPrice }) {
     const [renameAddBtn, setRenameAddBtn] = useState(false);
     const [reIcon, setReIcon] = useState(false);
+    const [openProductDetailModal, setOpenProductDetailModal] = useState(false);
+
+    const productDetail = Products.find((item) => item.id === id);
 
     const dispatch = useDispatch();
     const handleAddtoCart = () => {
@@ -48,12 +54,22 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
         }
     };
 
+    const handleClickOpenProductModal = () => {
+        setOpenProductDetailModal(!openProductDetailModal);
+    };
+
     return (
         <div className="item-product">
             <div className="info-product">
                 <div className="product-image">
                     <Link to={`/product/${id}`}>
-                        <img src={img} alt={alt} />
+                        <img
+                            src={img}
+                            alt={alt}
+                            onClick={() => {
+                                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                            }}
+                        />
                     </Link>
 
                     <div
@@ -72,7 +88,7 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
                     <div className="btn-action" onClick={handleWithWishlist}>
                         {reIcon ? <FontAwesomeIcon icon={faTrash} /> : <FontAwesomeIcon icon={faHeart} />}
                     </div>
-                    <div className="btn-action">
+                    <div className="btn-action" onClick={handleClickOpenProductModal}>
                         <FontAwesomeIcon icon={faUpRightFromSquare} />
                     </div>
                     <div className="btn-action">
@@ -87,6 +103,12 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
                     </div>
                 </div>
             </div>
+            {openProductDetailModal && (
+                <ProductDetailModal
+                    productDetail={productDetail}
+                    setOpenProductDetailModal={setOpenProductDetailModal}
+                />
+            )}
         </div>
     );
 }

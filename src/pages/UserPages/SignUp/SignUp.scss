@@ -6,10 +6,7 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 3px;
-
-    &:focus {
-        outline: 1px solid $orangeColor;
-    }
+    outline-color: $orangeColor;
 }
 
 .signup {
@@ -20,6 +17,11 @@
     border-radius: 5px;
 
     .form-signup {
+        .error-message {
+            font-size: 13px;
+            color: red;
+        }
+
         .row {
             display: flex;
             margin-bottom: 25px;
@@ -113,6 +115,7 @@
                 outline: none;
                 border: none;
                 font-size: 16px;
+                cursor: pointer;
 
                 &.disable {
                     opacity: 0.5;

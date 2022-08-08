@@ -41,7 +41,6 @@ const headTable = [
 function CartPage() {
     let total = 0;
     const ProductsListinCart = useSelector((state) => state.cart.productsList);
-    // const [showProductinCart, setShowProductinCart] = useState();
 
     ProductsListinCart.forEach((item) => {
         total += item.totalPrice;
@@ -53,16 +52,6 @@ function CartPage() {
         dispatch(cartActions.clearAllProductinCart());
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     };
-
-    // useEffect(() => {
-    //     window.localStorage.setItem('SHOW_ALL_PRODUCT_IN_CART', JSON.stringify(showProductinCart));
-    // }, [showProductinCart]);
-
-    // useEffect(() => {
-    //     const data = window.localStorage.getItem('SHOW_ALL_PRODUCT_IN_CART');
-    //     console.log(data);
-    //     setShowProductinCart(JSON.parse(data));
-    // }, []);
 
     return (
         <HeaderPageRoute>

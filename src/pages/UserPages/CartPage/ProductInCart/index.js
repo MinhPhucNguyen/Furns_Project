@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ProductInCart.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
@@ -24,11 +25,11 @@ function ProductInCart({ id, img, alt, nameProduct, newPrice, quantity, totalPri
     return (
         <tr>
             <td className="product-img">
-                <a href="/">
+                <Link to={`/product/${id}`}>
                     <div>
                         <img src={img} alt={alt} />
                     </div>
-                </a>
+                </Link>
             </td>
             <td className="product-name">
                 <a href="/">{nameProduct}</a>
@@ -39,7 +40,7 @@ function ProductInCart({ id, img, alt, nameProduct, newPrice, quantity, totalPri
                     <button className="decrease" onClick={handleDecreaseQuantity}>
                         -
                     </button>
-                    <input type="text" defaultValue={quantity} className="input-quantity" />
+                    <input type="text" value={quantity} className="input-quantity" />
                     <button className="increase" onClick={handleIncreaseQuantity}>
                         +
                     </button>

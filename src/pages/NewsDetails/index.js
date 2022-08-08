@@ -23,7 +23,7 @@ function NewsDetails() {
                     </div>
                 </div>
             </div>
-            <div className="main-content">
+            <div className="main-news-content">
                 <div className="news-image">
                     <img src={newsDetail.img} alt={newsDetail.alt} />
                 </div>

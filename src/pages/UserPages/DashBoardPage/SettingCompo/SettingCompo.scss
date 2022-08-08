@@ -1,0 +1,145 @@
+@import '../../../../styles/variables.scss';
+
+@mixin stylesOfInput {
+    width: 100%;
+    padding: 10px 13px;
+    border-radius: 3px;
+    border: 1px solid $border;
+    outline-color: $orangeColor;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.settings {
+    .settings-heading {
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        border-bottom: 2px dashed $border;
+        display: flex;
+        justify-content: space-between;
+
+        h3 {
+            font-weight: 500;
+        }
+    }
+
+    .personal_info {
+        h2 {
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .personal_form {
+            .personal_row {
+                margin: 0 -14px;
+                display: flex;
+                margin-bottom: 20px;
+
+                .personal_firstname,
+                .personal_lastname {
+                    width: 50%;
+                    padding: 0 15px;
+
+                    label {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    .firstname,
+                    .lastname {
+                        @include stylesOfInput();
+                    }
+                }
+
+                .personal_new_password,
+                .personal_confirm_password {
+                    width: 50%;
+                    padding: 0 15px;
+
+                    label {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    .new_password,
+                    .confirm_password {
+                        @include stylesOfInput();
+                    }
+                }
+
+                .personal_display_name {
+                    width: 100%;
+                    padding: 0 15px;
+
+                    label {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    .display_name {
+                        @include stylesOfInput();
+                    }
+                }
+
+                .personal_email {
+                    width: 100%;
+                    padding: 0 15px;
+
+                    label {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    .email {
+                        @include stylesOfInput();
+                    }
+                }
+
+                .personal_phone {
+                    width: 100%;
+                    padding: 0 15px;
+
+                    label {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    .phone {
+                        @include stylesOfInput();
+                    }
+                }
+
+                .personal_current_password {
+                    width: 100%;
+                    padding: 0 15px;
+
+                    label {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    .current_password {
+                        @include stylesOfInput();
+                    }
+                }
+            }
+        }
+
+        .save_changes_btn {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 15px;
+            font-weight: 500;
+            color: white;
+            background-color: $orangeColor;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $primaryColor;
+            }
+        }
+    }
+}
