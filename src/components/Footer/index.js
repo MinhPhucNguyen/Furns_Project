@@ -1,5 +1,5 @@
 import './Footer.scss';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,9 +7,12 @@ import { faFacebook, faTwitter, faLinkedinIn, faYoutube, faPinterest } from '@fo
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { auth } from '../../firebase/firebaseConfig';
 import { signOut } from 'firebase/auth';
+import { AuthContext } from '../../Context/AuthProvider';
 
 function Footer() {
     const navigate = useNavigate();
+    const user = useContext(AuthContext);
+
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, []);
@@ -110,10 +113,19 @@ function Footer() {
                                         Wishlist
                                     </Link>
                                 </li>
-                                <li>Compare</li>
                                 <li>
                                     <Link
-                                        to="/account"
+                                        to="/compare"
+                                        onClick={() => {
+                                            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                                        }}
+                                    >
+                                        Compare
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to={user.currentUser ? '/account' : '/signin'}
                                         onClick={() => {
                                             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
                                         }}

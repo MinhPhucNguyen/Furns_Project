@@ -1,5 +1,5 @@
 import './Heading.scss';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../../../images/75.png';
@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faUser, faBagShopping, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import ProductinCartModal from './ProductinCartModal';
 import { AuthContext } from '../../../Context/AuthProvider';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../../firebase/firebaseConfig';
 
 const userItem = [
     {
@@ -55,7 +57,7 @@ const userItem2 = [
     {
         id: 5,
         display: 'Logout',
-        path: '/logout',
+        path: '/',
     },
 ];
 
@@ -69,7 +71,6 @@ function Heading() {
     const productsListinCart = useSelector((state) => state.cart.productsList);
 
     const user = useContext(AuthContext);
-    console.log(user);
 
     productsListinCart.forEach((item) => {
         total += item.totalPrice;
@@ -93,6 +94,14 @@ function Heading() {
         setModalCartOpen((e) => !e);
     };
 
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {})
+            .catch((err) => {
+                alert(err);
+            });
+    };
+
     return (
         <>
             <div className="heading">
@@ -111,7 +120,15 @@ function Heading() {
                             {menuOpenUser && (
                                 <ul className="user-list">
                                     {userList.map((item) => (
-                                        <li className="user-item" key={item.id}>
+                                        <li
+                                            className="user-item"
+                                            key={item.id}
+                                            onClick={() => {
+                                                if (item.id === 5) {
+                                                    handleLogout();
+                                                }
+                                            }}
+                                        >
                                             <Link to={item.path}>{item.display}</Link>
                                         </li>
                                     ))}
