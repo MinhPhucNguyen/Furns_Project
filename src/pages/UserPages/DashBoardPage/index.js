@@ -28,7 +28,6 @@ const dashBoardPageData = [
 function DashBoardPage() {
     const navigate = useNavigate();
     const [open, setOpen] = useState(1);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setOpen(open);
@@ -38,7 +37,6 @@ function DashBoardPage() {
         signOut(auth)
             .then(() => {
                 navigate('/');
-                setLoading(false);
             })
             .catch((err) => {
                 alert(err);

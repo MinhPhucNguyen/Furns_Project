@@ -19,6 +19,7 @@ function AuthProvider({ children }) {
                 setLoading(false);
             } else {
                 setLoading(false);
+                setCurrentUser();
             }
         });
 

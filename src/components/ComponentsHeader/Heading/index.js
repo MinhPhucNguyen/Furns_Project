@@ -82,6 +82,8 @@ function Heading() {
 
         if (user.currentUser) {
             setUserList(userItem2);
+        } else if (user.currentUser === undefined) {
+            setUserList(userItem);
         }
     };
 
