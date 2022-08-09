@@ -1,13 +1,13 @@
 @import '../../../styles/variables.scss';
 
 .slide-news-container {
-    // width: calc(80vw - 30px);
-    width: 1000vw;
+    display: flex;
 
     .item-news {
-        width: 364px;
-        margin-right: 30px;
+        width: 387px;
         background-color: rgb(244, 245, 248);
+        display: inline-block;
+        margin: 0 15px;
 
         :last-child {
             margin-right: 15px;

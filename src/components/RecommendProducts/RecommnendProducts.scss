@@ -13,11 +13,14 @@
         align-items: center;
 
         .row {
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 0 -15px;
 
             .select {
+                width: 100%;
                 padding: 0 15px;
                 position: relative;
                 cursor: pointer;
