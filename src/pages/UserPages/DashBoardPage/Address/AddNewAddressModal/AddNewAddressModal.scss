@@ -20,6 +20,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: identifier 0.4s ease-out;
+
+    @keyframes identifier {
+        from {
+            bottom: -100%;
+        }
+
+        to {
+            bottom: 0;
+        }
+    }
 
     .form_add_new_address {
         background-color: white;
