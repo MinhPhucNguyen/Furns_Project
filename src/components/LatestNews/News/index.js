@@ -6,6 +6,7 @@ function News({ dataNews }) {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     };
+
     return (
         <>
             {dataNews.map((item) => (
@@ -27,7 +28,7 @@ function News({ dataNews }) {
                                 </a>
                             </div>
                             <p>{item.summary}</p>
-                            <Link to={`/blog/${item.id}`} className="read-more-btn">
+                            <Link to={`/blog/${item.id}`} className="read-more-btn" onClick={scrollToTop}>
                                 Read More
                             </Link>
                         </div>
