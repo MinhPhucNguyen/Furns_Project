@@ -6,7 +6,6 @@ import logo from '../../../images/75.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faUser, faBagShopping, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import ProductinCartModal from './ProductinCartModal';
-import { useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const userItem = [
@@ -62,7 +61,6 @@ const userItem2 = [
 
 function Heading() {
     let total = 0;
-    const location = useLocation();
     const [menuOpenUser, setMenuOpenUser] = useState(false);
     const [modalSearchOpen, setModalSearchOpen] = useState(false);
     const [modalCartOpen, setModalCartOpen] = useState(false);
