@@ -180,7 +180,7 @@ function Heading() {
 
             {modalCartOpen && (
                 <div
-                    className="modal-cart"
+                    className="modal-cart "
                     onClick={(e) => {
                         if (e.target === e.currentTarget) {
                             clickOpenModalCart();

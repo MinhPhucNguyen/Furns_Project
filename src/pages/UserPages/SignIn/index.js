@@ -42,6 +42,7 @@ function SignInPage() {
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
                 navigate('/account');
+                alert('Login successful');
             })
 
             .catch(() => {
