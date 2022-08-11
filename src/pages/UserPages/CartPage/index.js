@@ -1,5 +1,4 @@
 import './CartPage.scss';
-// import React, { useEffect, useState } from 'react';
 import React from 'react';
 
 import { Link } from 'react-router-dom';
@@ -41,6 +40,8 @@ const headTable = [
 function CartPage() {
     let total = 0;
     const ProductsListinCart = useSelector((state) => state.cart.productsList);
+    const storeProductList = JSON.parse(localStorage.getItem('productsListinCart'));
+    console.log(storeProductList);
 
     ProductsListinCart.forEach((item) => {
         total += item.totalPrice;
@@ -68,7 +69,8 @@ function CartPage() {
                             </tr>
                         </thead>
                         <tbody>
-                            {ProductsListinCart.map((item) => (
+                            {console.log(ProductsListinCart)}
+                            {storeProductList.map((item) => (
                                 <ProductInCart
                                     key={item.id}
                                     id={item.id}
