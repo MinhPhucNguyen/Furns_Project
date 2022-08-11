@@ -42,7 +42,6 @@ function SortByControl({
     const [clickOpenDropdown, setClickOpenDropdown] = useState(false);
     const [chooseItem, setChooseItem] = useState('1');
     const [value, setValue] = useState('Relevance');
-    // const [dataFilter, setDataFilter] = useState([]);
     const [softByArrayProduct, setSoftByArrayProduct] = useState([]);
 
     // dataFilter is Array

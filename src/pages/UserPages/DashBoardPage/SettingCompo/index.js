@@ -4,7 +4,6 @@ import './SettingCompo.scss';
 
 function SettingCompo() {
     const user = useContext(AuthContext);
-    console.log(user.currentUser);
 
     return (
         <div className="settings">

@@ -1,32 +1,54 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addressAction } from '../AddressSlice';
 import './AddNewAddressModal.scss';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 function AddNewAddressModal({ setOpenAddNewAddressModal }) {
-    const [firstnameUser, setFirstnameUser] = useState('');
-    const [lastnameUser, setLastnameUser] = useState('');
-    const [address, setAddress] = useState('');
-    const [apartment, setApartment] = useState('');
-    const [city, setCity] = useState('');
-    const [postalCode, setPostalCode] = useState('');
-
     const dispatch = useDispatch();
 
     const handleSaveInfoAddress = () => {
         dispatch(
             addressAction.saveAddress({
-                firstnameUser,
-                lastnameUser,
-                address,
-                apartment,
-                city,
-                postalCode,
+                firstnameUser: formik.values.firstnameInput,
+                lastnameUser: formik.values.lastnameInput,
+                address: formik.values.AddressInput,
+                apartment: formik.values.ApartmentInput,
+                city: formik.values.CityInput,
+                postalCode: formik.values.PostalCodeInput,
             }),
         );
-
         setOpenAddNewAddressModal(false);
     };
+
+    const formik = useFormik({
+        initialValues: {
+            firstnameInput: '',
+            lastnameInput: '',
+            AddressInput: '',
+            ApartmentInput: '',
+            CityInput: '',
+            CountryInput: '',
+            PostalCodeInput: '',
+        },
+
+        validationSchema: Yup.object({
+            firstnameInput: Yup.string().required('*Please fill out this field.'),
+            lastnameInput: Yup.string().required('*Please fill out this field.'),
+            AddressInput: Yup.string().required('*Please fill out this field.'),
+            ApartmentInput: Yup.string().required('*Please fill out this field.'),
+            CountryInput: Yup.string().required('*Please fill out this field.'),
+            CityInput: Yup.string().required('*Please fill out this field.'),
+            PostalCodeInput: Yup.string().required('*Please fill out this field.'),
+        }),
+
+        onSubmit: (values) => {
+            console.log(values);
+        },
+    });
+
+    console.log(Object.keys(formik.errors).length === 0 && formik.errors.constructor === Object);
 
     return (
         <div
@@ -37,7 +59,7 @@ function AddNewAddressModal({ setOpenAddNewAddressModal }) {
                 }
             }}
         >
-            <div className="form_add_new_address">
+            <form className="form_add_new_address" onSubmit={formik.handleSubmit}>
                 <div className="form_add_new_address_heading">
                     <h2>Add new Address</h2>
                 </div>
@@ -47,18 +69,24 @@ function AddNewAddressModal({ setOpenAddNewAddressModal }) {
                         <input
                             name="firstnameInput"
                             className="firstnameInput"
-                            value={firstnameUser}
-                            onChange={(e) => setFirstnameUser(e.target.value)}
+                            value={formik.values.firstnameInput}
+                            onChange={formik.handleChange}
                         />
+                        {formik.errors.firstnameInput && (
+                            <div className="address_err_message">{formik.errors.firstnameInput}</div>
+                        )}
                     </div>
                     <div className="row-item">
                         <label htmlFor="lastnameInput">Last Name</label>
                         <input
                             name="lastnameInput"
                             className="lastnameInput"
-                            value={lastnameUser}
-                            onChange={(e) => setLastnameUser(e.target.value)}
+                            value={formik.values.lastnameInput}
+                            onChange={formik.handleChange}
                         />
+                        {formik.errors.lastnameInput && (
+                            <div className="address_err_message">{formik.errors.lastnameInput}</div>
+                        )}
                     </div>
                 </div>
                 <div className="form_add_new_address_row">
@@ -67,9 +95,12 @@ function AddNewAddressModal({ setOpenAddNewAddressModal }) {
                         <input
                             name="AddressInput"
                             className="AddressInput"
-                            value={address}
-                            onChange={(e) => setAddress(e.target.value)}
+                            value={formik.values.AddressInput}
+                            onChange={formik.handleChange}
                         />
+                        {formik.errors.AddressInput && (
+                            <div className="address_err_message">{formik.errors.AddressInput}</div>
+                        )}
                     </div>
                 </div>
                 <div className="form_add_new_address_row">
@@ -78,9 +109,12 @@ function AddNewAddressModal({ setOpenAddNewAddressModal }) {
                         <input
                             name="ApartmentInput"
                             className="ApartmentInput"
-                            value={apartment}
-                            onChange={(e) => setApartment(e.target.value)}
+                            value={formik.values.ApartmentInput}
+                            onChange={formik.handleChange}
                         />
+                        {formik.errors.ApartmentInput && (
+                            <div className="address_err_message">{formik.errors.ApartmentInput}</div>
+                        )}
                     </div>
                 </div>
                 <div className="form_add_new_address_row">
@@ -89,24 +123,38 @@ function AddNewAddressModal({ setOpenAddNewAddressModal }) {
                         <input
                             name="CityInput"
                             className="CityInput"
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}
+                            value={formik.values.CityInput}
+                            onChange={formik.handleChange}
                         />
+                        {formik.errors.CityInput && (
+                            <div className="address_err_message">{formik.errors.CityInput}</div>
+                        )}
                     </div>
                 </div>
                 <div className="form_add_new_address_row">
                     <div className="row-item">
                         <label htmlFor="CountryInput">Country</label>
-                        <input name="CountryInput" className="CountryInput" />
+                        <input
+                            name="CountryInput"
+                            className="CountryInput"
+                            value={formik.values.CountryInput}
+                            onChange={formik.handleChange}
+                        />
+                        {formik.errors.CountryInput && (
+                            <div className="address_err_message">{formik.errors.CountryInput}</div>
+                        )}
                     </div>
                     <div className="row-item">
                         <label htmlFor="PostalCodeInput">Postal code</label>
                         <input
                             name="PostalCodeInput"
                             className="PostalCodeInput"
-                            value={postalCode}
-                            onChange={(e) => setPostalCode(e.target.value)}
+                            value={formik.values.PostalCodeInput}
+                            onChange={formik.handleChange}
                         />
+                        {formik.errors.PostalCodeInput && (
+                            <div className="address_err_message">{formik.errors.PostalCodeInput}</div>
+                        )}
                     </div>
                 </div>
                 <div className="row-btn">
@@ -117,7 +165,7 @@ function AddNewAddressModal({ setOpenAddNewAddressModal }) {
                         Save
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
     );
 }
