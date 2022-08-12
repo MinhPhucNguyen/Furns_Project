@@ -26,7 +26,6 @@ const tabList = [
 function OurProducts() {
     const [selected, setSelected] = useState('arrival');
     const [data, setData] = useState([]);
-    const productSale = Products.filter((item) => item.percentSale !== '');
 
     useEffect(() => {
         switch (selected) {
@@ -37,7 +36,7 @@ function OurProducts() {
                 setData(Products.slice(Math.floor(Math.random() * Products.length)));
                 break;
             case 'sale':
-                setData(productSale);
+                setData(Products.filter((item) => item.percentSale !== ''));
                 break;
             case 'tending':
                 setData(Products.slice(Math.floor(Math.random() * Products.length)));
