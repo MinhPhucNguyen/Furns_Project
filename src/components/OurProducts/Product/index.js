@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Product.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,11 +16,22 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
     const [reIcon, setReIcon] = useState(false);
     const [openProductDetailModal, setOpenProductDetailModal] = useState(false);
 
+    const [store, setStore] = useState([]);
+    const [item, setItem] = useState({
+        id,
+        img,
+        alt,
+        nameProduct,
+        newPrice,
+        chooseBtn,
+    });
+
     const productDetail = Products.find((item) => item.id === id);
 
     const dispatch = useDispatch();
     const handleAddtoCart = () => {
         if (chooseBtn === 'Add to Cart') {
+            //Redux
             dispatch(
                 cartActions.addToCart({
                     id,
@@ -32,6 +43,16 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
                 }),
             );
             setRenameAddBtn(true);
+            //
+
+            console.log('item: ', item);
+            setStore((prev) => {
+                const arr = [...prev, item];
+                localStorage.setItem('arr', JSON.stringify(arr));
+                return arr;
+            });
+
+            console.log('store: ', store);
         }
     };
 
@@ -57,6 +78,14 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
     const handleClickOpenProductModal = () => {
         setOpenProductDetailModal(!openProductDetailModal);
     };
+
+    useEffect(() => {
+        if (openProductDetailModal === true) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [openProductDetailModal]);
 
     return (
         <div className="item-product">

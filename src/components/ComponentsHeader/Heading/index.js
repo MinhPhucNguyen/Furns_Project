@@ -1,6 +1,6 @@
 import './Heading.scss';
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../../../images/75.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -69,7 +69,14 @@ function Heading() {
     const [userList, setUserList] = useState(userItem);
     const quantity = useSelector((state) => state.cart.totalQuantity);
     const productsListinCart = useSelector((state) => state.cart.productsList);
-    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (modalCartOpen === true || modalSearchOpen === true) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [modalCartOpen, modalSearchOpen]);
 
     const user = useContext(AuthContext);
 
@@ -102,10 +109,6 @@ function Heading() {
                 alert(err);
             });
     };
-
-    if (navigate('/cart')) {
-        localStorage.setItem('productsListinCart', JSON.stringify(productsListinCart));
-    }
 
     return (
         <>
@@ -185,7 +188,7 @@ function Heading() {
 
             {modalCartOpen && (
                 <div
-                    className="modal-cart "
+                    className="modal-cart"
                     onClick={(e) => {
                         if (e.target === e.currentTarget) {
                             clickOpenModalCart();
