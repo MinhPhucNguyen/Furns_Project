@@ -9,24 +9,13 @@ import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../pages/UserPages/CartPage/CartSlice';
 import { wishlistActions } from '../../../pages/UserPages/WishlistPage/WishListSlice';
 import ProductDetailModal from '../../ProductDetailModal';
-import { Products } from '../../../data';
 
-function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, oldPrice, newPrice }) {
+function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, oldPrice, newPrice, data }) {
     const [renameAddBtn, setRenameAddBtn] = useState(false);
     const [reIcon, setReIcon] = useState(false);
     const [openProductDetailModal, setOpenProductDetailModal] = useState(false);
 
-    const [store, setStore] = useState([]);
-    const [item, setItem] = useState({
-        id,
-        img,
-        alt,
-        nameProduct,
-        newPrice,
-        chooseBtn,
-    });
-
-    const productDetail = Products.find((item) => item.id === id);
+    const productDetail = data.find((item) => item.id === id);
 
     const dispatch = useDispatch();
     const handleAddtoCart = () => {
@@ -44,15 +33,6 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
             );
             setRenameAddBtn(true);
             //
-
-            console.log('item: ', item);
-            setStore((prev) => {
-                const arr = [...prev, item];
-                localStorage.setItem('arr', JSON.stringify(arr));
-                return arr;
-            });
-
-            console.log('store: ', store);
         }
     };
 
