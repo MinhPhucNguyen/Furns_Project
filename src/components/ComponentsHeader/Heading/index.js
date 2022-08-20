@@ -1,6 +1,6 @@
 import './Heading.scss';
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../../../images/75.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -69,7 +69,6 @@ function Heading() {
     const [userList, setUserList] = useState(userItem);
     const quantity = useSelector((state) => state.cart.totalQuantity);
     const productsListinCart = useSelector((state) => state.cart.productsList);
-    const navigate = useNavigate();
 
     const user = useContext(AuthContext);
 
@@ -102,10 +101,6 @@ function Heading() {
                 alert(err);
             });
     };
-
-    if (navigate('/cart')) {
-        localStorage.setItem('productsListinCart', JSON.stringify(productsListinCart));
-    }
 
     return (
         <>

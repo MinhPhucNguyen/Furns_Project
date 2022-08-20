@@ -40,8 +40,6 @@ const headTable = [
 function CartPage() {
     let total = 0;
     const ProductsListinCart = useSelector((state) => state.cart.productsList);
-    const storeProductList = JSON.parse(localStorage.getItem('productsListinCart'));
-    console.log(storeProductList);
 
     ProductsListinCart.forEach((item) => {
         total += item.totalPrice;
@@ -70,7 +68,7 @@ function CartPage() {
                         </thead>
                         <tbody>
                             {console.log(ProductsListinCart)}
-                            {storeProductList.map((item) => (
+                            {ProductsListinCart.map((item) => (
                                 <ProductInCart
                                     key={item.id}
                                     id={item.id}
