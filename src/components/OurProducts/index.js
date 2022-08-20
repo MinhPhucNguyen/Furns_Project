@@ -85,7 +85,6 @@ function OurProducts() {
                                 chooseBtn={item.chooseBtn}
                                 oldPrice={item.oldPrice}
                                 newPrice={item.newPrice}
-                                data={data}
                             />
                         ))}
                     </div>

@@ -1,5 +1,5 @@
 import './CartPage.scss';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -40,11 +40,6 @@ const headTable = [
 function CartPage() {
     let total = 0;
     const ProductsListinCart = useSelector((state) => state.cart.productsList);
-<<<<<<< HEAD
-=======
-    // const getProductListinStore = JSON.parse(localStorage.getItem('ProductsListinCart'));
-    // const [store, setStore] = useState(getProductListinStore ?? []);
->>>>>>> 4c1d095e568ff71defc0da04fd088ade729c86ed
 
     ProductsListinCart.forEach((item) => {
         total += item.totalPrice;
@@ -56,16 +51,6 @@ function CartPage() {
         dispatch(cartActions.clearAllProductinCart());
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     };
-
-    // useEffect(() => {
-    //     setStore((prev) => {
-    //         const newProductList = [...prev];
-
-    //         localStorage.setItem('newProductListabc', JSON.stringify(newProductList));
-
-    //         return newProductList;
-    //     });
-    // }, []);
 
     return (
         <HeaderPageRoute>
@@ -82,10 +67,7 @@ function CartPage() {
                             </tr>
                         </thead>
                         <tbody>
-<<<<<<< HEAD
                             {console.log(ProductsListinCart)}
-=======
->>>>>>> 4c1d095e568ff71defc0da04fd088ade729c86ed
                             {ProductsListinCart.map((item) => (
                                 <ProductInCart
                                     key={item.id}

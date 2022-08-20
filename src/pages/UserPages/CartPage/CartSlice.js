@@ -14,7 +14,7 @@ const cartSlice = createSlice({
             const existingProduct = state.productsList.find((product) => product.id === newProduct.id);
 
             if (existingProduct) {
-                newProduct.quantity > 1
+                newProduct.quantity > existingProduct.quantity
                     ? (existingProduct.quantity = existingProduct.quantity + newProduct.quantity)
                     : existingProduct.quantity++;
 

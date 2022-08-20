@@ -4,18 +4,18 @@ import './Product.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightFromSquare, faRepeat, faCartShopping, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../pages/UserPages/CartPage/CartSlice';
 import { wishlistActions } from '../../../pages/UserPages/WishlistPage/WishListSlice';
 import ProductDetailModal from '../../ProductDetailModal';
+import { Products } from '../../../data';
 
-function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, oldPrice, newPrice, data }) {
+function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, oldPrice, newPrice }) {
     const [renameAddBtn, setRenameAddBtn] = useState(false);
     const [reIcon, setReIcon] = useState(false);
     const [openProductDetailModal, setOpenProductDetailModal] = useState(false);
 
-    const productDetail = data.find((item) => item.id === id);
+    const productDetail = Products.find((item) => item.id === id);
 
     const dispatch = useDispatch();
     const handleAddtoCart = () => {

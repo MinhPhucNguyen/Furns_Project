@@ -1,0 +1,53 @@
+@import '../../styles/variables.scss';
+
+.contain-toast {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+
+    .toast {
+        display: flex;
+        align-items: center;
+        max-width: 500px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        border-left: 4px solid red;
+        z-index: 999;
+        margin-bottom: 24px;
+
+        .toast__body {
+            .toast__title {
+                font-weight: 500;
+            }
+
+            .toast__message {
+                color: $textColor;
+            }
+
+            font-size: 14px;
+            line-height: 1.8;
+        }
+    }
+
+    .toast__success {
+        border-color: #47d864;
+
+        .toast__icon {
+            font-size: 20px;
+            padding: 0 18px;
+            color: #47d864;
+        }
+    }
+
+    .toast__remove {
+        border-color: rgb(214, 10, 15);
+
+        .toast__icon {
+            font-size: 20px;
+            padding: 0 18px;
+            color: rgb(214, 10, 15);
+        }
+    }
+}
