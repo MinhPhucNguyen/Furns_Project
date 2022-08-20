@@ -15,12 +15,17 @@ function ProductDetail() {
     const dispatch = useDispatch();
     const { idProduct } = useParams();
     const productDetail = Products.find((item) => item.id === parseInt(idProduct));
-    const relatedProductsArr = Products.filter((obj) => obj.nameProduct !== productDetail.nameProduct);
     const [clickChangeControl, setClickChangeControl] = useState(true);
     const [renameBtn, setRenameBtn] = useState(false);
     let [quantityProduct, setQuantityProduct] = useState(1);
 
     const newProductDetail = { ...productDetail, quantity: quantityProduct };
+
+    //Related Product
+    const relatedProductsArr = Products.filter(
+        (item) => item.nameProduct !== productDetail.nameProduct && item.type === productDetail.type,
+    );
+    ///////
 
     const handleClickAddtoCart = () => {
         if (productDetail.chooseBtn !== 'Out of Stock') {
