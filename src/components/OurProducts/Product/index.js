@@ -9,6 +9,7 @@ import { cartActions } from '../../../pages/UserPages/CartPage/CartSlice';
 import { wishlistActions } from '../../../pages/UserPages/WishlistPage/WishListSlice';
 import ProductDetailModal from '../../ProductDetailModal';
 import { Products } from '../../../data';
+import { compareActions } from '../../../pages/UserPages/ComparePage/CompareSlice';
 
 function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, oldPrice, newPrice }) {
     const [renameAddBtn, setRenameAddBtn] = useState(false);
@@ -59,6 +60,10 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
         setOpenProductDetailModal(!openProductDetailModal);
     };
 
+    const handleAddtoCompare = () => {
+        dispatch(compareActions.addtoCompare(productDetail));
+    };
+
     useEffect(() => {
         if (openProductDetailModal === true) {
             document.body.style.overflow = 'hidden';
@@ -92,7 +97,7 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
                 <div className={'sale ' + (percentSale === '' ? 'active' : '')}>
                     <span>{percentSale}</span>
                 </div>
-                <div className={'status ' + (status === '' ? 'active' : '')}>{status}</div>
+                <div className={'status ' + (status === 'Available' ? 'active' : '')}>{status}</div>
                 <div className="action">
                     <div className="btn-action" onClick={handleWithWishlist}>
                         {reIcon ? <FontAwesomeIcon icon={faTrash} /> : <FontAwesomeIcon icon={faHeart} />}
@@ -100,7 +105,7 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
                     <div className="btn-action" onClick={handleClickOpenProductModal}>
                         <FontAwesomeIcon icon={faUpRightFromSquare} />
                     </div>
-                    <div className="btn-action">
+                    <div className="btn-action" onClick={handleAddtoCompare}>
                         <FontAwesomeIcon icon={faRepeat} />
                     </div>
                 </div>

@@ -17,10 +17,12 @@
     .compare__body {
         .compare__row {
             border: 1px solid $border;
+
             .compare__head {
                 @include tableStyle();
-                width: 180px;
                 font-weight: 500;
+                min-width: 200px;
+                width: 200px;
             }
 
             .compare__description,
@@ -30,6 +32,7 @@
             .compare__product__add-to-cart,
             .compare__product {
                 @include tableStyle();
+                max-width: 300px;
 
                 .trash-btn {
                     background-color: transparent;
@@ -60,6 +63,51 @@
 
                 .compare__product-name {
                     font-weight: 500;
+                    height: 50px;
+                }
+            }
+
+            .compare__description,
+            .compare__price,
+            .compare__variants,
+            .compare__stock {
+                font-size: 14px;
+                color: $textColor;
+            }
+
+            .compare__description {
+                text-align: left;
+                vertical-align: top;
+            }
+
+            .compare__price {
+                font-weight: 600;
+            }
+
+            .compare__variants {
+                font-weight: 500;
+            }
+
+            .compare__stock {
+                font-weight: 500;
+                color: green;
+            }
+
+            .compare__product__add-to-cart {
+                .add-to-cart-btn {
+                    font-weight: 500;
+                    font-size: 12px;
+                    background-color: $orangeColor;
+                    display: inline-block;
+                    padding: 8px 18px;
+                    cursor: pointer;
+                    color: white;
+                    border-radius: 3px;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background-color: $primaryColor;
+                    }
                 }
             }
         }
