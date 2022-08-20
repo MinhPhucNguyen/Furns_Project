@@ -1,5 +1,9 @@
 import './Heading.scss';
+<<<<<<< HEAD
 import React, { useContext, useState } from 'react';
+=======
+import React, { useContext, useEffect, useState } from 'react';
+>>>>>>> 4c1d095e568ff71defc0da04fd088ade729c86ed
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../../../images/75.png';
@@ -69,6 +73,17 @@ function Heading() {
     const [userList, setUserList] = useState(userItem);
     const quantity = useSelector((state) => state.cart.totalQuantity);
     const productsListinCart = useSelector((state) => state.cart.productsList);
+<<<<<<< HEAD
+=======
+
+    useEffect(() => {
+        if (modalCartOpen === true || modalSearchOpen === true) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [modalCartOpen, modalSearchOpen]);
+>>>>>>> 4c1d095e568ff71defc0da04fd088ade729c86ed
 
     const user = useContext(AuthContext);
 
@@ -180,7 +195,7 @@ function Heading() {
 
             {modalCartOpen && (
                 <div
-                    className="modal-cart "
+                    className="modal-cart"
                     onClick={(e) => {
                         if (e.target === e.currentTarget) {
                             clickOpenModalCart();

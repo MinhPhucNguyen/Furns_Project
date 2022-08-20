@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddNewAddressModal from './AddNewAddressModal';
 import './Address.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +11,13 @@ function Address() {
     const [openAddNewAddressModal, setOpenAddNewAddressModal] = useState(false);
     const userAddressList = useSelector((state) => state.address.addressList);
 
-    console.log(userAddressList);
+    useEffect(() => {
+        if (openAddNewAddressModal === true) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [openAddNewAddressModal]);
 
     const handleRemoveAddress = (id) => {
         dispatch(addressAction.removeAddress(id));

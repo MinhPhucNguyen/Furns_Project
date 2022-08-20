@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Product.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,18 +9,18 @@ import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../pages/UserPages/CartPage/CartSlice';
 import { wishlistActions } from '../../../pages/UserPages/WishlistPage/WishListSlice';
 import ProductDetailModal from '../../ProductDetailModal';
-import { Products } from '../../../data';
 
-function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, oldPrice, newPrice }) {
+function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, oldPrice, newPrice, data }) {
     const [renameAddBtn, setRenameAddBtn] = useState(false);
     const [reIcon, setReIcon] = useState(false);
     const [openProductDetailModal, setOpenProductDetailModal] = useState(false);
 
-    const productDetail = Products.find((item) => item.id === id);
+    const productDetail = data.find((item) => item.id === id);
 
     const dispatch = useDispatch();
     const handleAddtoCart = () => {
         if (chooseBtn === 'Add to Cart') {
+            //Redux
             dispatch(
                 cartActions.addToCart({
                     id,
@@ -32,6 +32,7 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
                 }),
             );
             setRenameAddBtn(true);
+            //
         }
     };
 
@@ -57,6 +58,14 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
     const handleClickOpenProductModal = () => {
         setOpenProductDetailModal(!openProductDetailModal);
     };
+
+    useEffect(() => {
+        if (openProductDetailModal === true) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [openProductDetailModal]);
 
     return (
         <div className="item-product">

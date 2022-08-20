@@ -1,10 +1,8 @@
-import './OurProducts.scss';
-
 import React, { useEffect, useState } from 'react';
-import { newArrival, Featured, onSale, Tending } from '../../data';
-
+import './OurProducts.scss';
 import TabProductList from '../TabProductList';
 import Product from './Product';
+import { Products } from '../../data';
 
 const tabList = [
     {
@@ -32,16 +30,16 @@ function OurProducts() {
     useEffect(() => {
         switch (selected) {
             case 'arrival':
-                setData(newArrival);
+                setData(Products.slice(0, 8));
                 break;
             case 'featured':
-                setData(Featured);
+                setData(Products.slice(Math.floor(Math.random() * Products.length)));
                 break;
             case 'sale':
-                setData(onSale);
+                setData(Products.filter((item) => item.percentSale !== ''));
                 break;
             case 'tending':
-                setData(Tending);
+                setData(Products.slice(Math.floor(Math.random() * Products.length)));
                 break;
             default:
                 setData([]);
@@ -87,6 +85,7 @@ function OurProducts() {
                                 chooseBtn={item.chooseBtn}
                                 oldPrice={item.oldPrice}
                                 newPrice={item.newPrice}
+                                data={data}
                             />
                         ))}
                     </div>
