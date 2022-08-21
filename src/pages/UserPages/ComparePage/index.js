@@ -3,11 +3,25 @@ import React from 'react';
 import HeaderPageRoute from '../../../components/HeaderPageRoute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faBagShopping } from '@fortawesome/free-solid-svg-icons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { cartActions } from '../CartPage/CartSlice';
+import { compareActions } from './CompareSlice';
 
 function ComparePage() {
+    const dispatch = useDispatch();
     const productCompare = useSelector((state) => state.compare.listProductCompare);
-    console.log(productCompare.length);
+    console.log(productCompare);
+
+    const clickAddtoCart = (id) => {
+        const itemAddtoCart = productCompare.find((item) => item.id === id);
+        if (itemAddtoCart.status !== 'stock out') {
+            dispatch(cartActions.addToCart(itemAddtoCart));
+        }
+    };
+
+    const clickRemoveFromCompare = (id) => {
+        dispatch(compareActions.removeFromCompare(id));
+    };
 
     return (
         <HeaderPageRoute>
@@ -18,7 +32,7 @@ function ComparePage() {
                             <td className="compare__head">Product</td>
                             {productCompare.map((item) => (
                                 <td className="compare__product" key={item.id}>
-                                    <button className="trash-btn">
+                                    <button className="trash-btn" onClick={() => clickRemoveFromCompare(item.id)}>
                                         <FontAwesomeIcon icon={faTrashCan} />
                                     </button>
                                     <div className="compare__product-img">
@@ -55,8 +69,15 @@ function ComparePage() {
                         <tr className="compare__row">
                             <td className="compare__head">Stock</td>
                             {productCompare.map((item) => (
-                                <td key={item.id} className="compare__stock">
-                                    {item.status}
+                                <td
+                                    key={item.id}
+                                    className={
+                                        item.status === 'stock out'
+                                            ? 'compare__stock out-of-stock-style'
+                                            : 'compare__stock'
+                                    }
+                                >
+                                    {item.status === 'stock out' ? 'Out of Stock' : item.status}
                                 </td>
                             ))}
                         </tr>
@@ -64,7 +85,12 @@ function ComparePage() {
                             <td className="compare__head">Add to Cart</td>
                             {productCompare.map((item) => (
                                 <td key={item.id} className="compare__product__add-to-cart">
-                                    <div className="add-to-cart-btn">Add to Cart</div>
+                                    <div
+                                        className={item.status === 'stock out' ? 'unable-click' : 'add-to-cart-btn'}
+                                        onClick={() => clickAddtoCart(item.id)}
+                                    >
+                                        {item.status === 'stock out' ? item.chooseBtn : 'Add to Cart'}
+                                    </div>
                                 </td>
                             ))}
                         </tr>

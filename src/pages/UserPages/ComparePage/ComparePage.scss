@@ -93,6 +93,10 @@
                 color: green;
             }
 
+            .out-of-stock-style {
+                color: rgb(220, 53, 69);
+            }
+
             .compare__product__add-to-cart {
                 .add-to-cart-btn {
                     font-weight: 500;
@@ -109,6 +113,19 @@
                         background-color: $primaryColor;
                     }
                 }
+            }
+
+            .unable-click {
+                opacity: 0.4;
+                font-weight: 500;
+                font-size: 12px;
+                background-color: $orangeColor;
+                display: inline-block;
+                padding: 8px 18px;
+                color: white;
+                cursor: default;
+                border-radius: 3px;
+                transition: 0.3s;
             }
         }
     }

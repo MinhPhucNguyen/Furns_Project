@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Product.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUpRightFromSquare, faRepeat, faCartShopping, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faUpRightFromSquare, faRepeat, faCartShopping, faTrash, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../pages/UserPages/CartPage/CartSlice';
@@ -14,6 +14,7 @@ import { compareActions } from '../../../pages/UserPages/ComparePage/CompareSlic
 function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, oldPrice, newPrice }) {
     const [renameAddBtn, setRenameAddBtn] = useState(false);
     const [reIcon, setReIcon] = useState(false);
+    const [reIconCompare, setReIconCompare] = useState(false);
     const [openProductDetailModal, setOpenProductDetailModal] = useState(false);
 
     const productDetail = Products.find((item) => item.id === id);
@@ -61,7 +62,13 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
     };
 
     const handleAddtoCompare = () => {
-        dispatch(compareActions.addtoCompare(productDetail));
+        if (reIconCompare === false) {
+            dispatch(compareActions.addtoCompare(productDetail));
+            setReIconCompare(true);
+        } else {
+            dispatch(compareActions.removeFromCompare(productDetail.id));
+            setReIconCompare(false);
+        }
     };
 
     useEffect(() => {
@@ -100,13 +107,13 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
                 <div className={'status ' + (status === 'Available' ? 'active' : '')}>{status}</div>
                 <div className="action">
                     <div className="btn-action" onClick={handleWithWishlist}>
-                        {reIcon ? <FontAwesomeIcon icon={faTrash} /> : <FontAwesomeIcon icon={faHeart} />}
+                        {reIcon ? <FontAwesomeIcon icon={faTrashCan} /> : <FontAwesomeIcon icon={faHeart} />}
                     </div>
                     <div className="btn-action" onClick={handleClickOpenProductModal}>
                         <FontAwesomeIcon icon={faUpRightFromSquare} />
                     </div>
                     <div className="btn-action" onClick={handleAddtoCompare}>
-                        <FontAwesomeIcon icon={faRepeat} />
+                        {reIconCompare ? <FontAwesomeIcon icon={faTrashCan} /> : <FontAwesomeIcon icon={faRepeat} />}
                     </div>
                 </div>
                 <div className="name-price">

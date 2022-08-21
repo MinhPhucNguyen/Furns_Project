@@ -9,7 +9,14 @@ const compareSlice = createSlice({
         addtoCompare(state, action) {
             const productCompare = action.payload;
 
-            state.listProductCompare.push(productCompare);
+            state.listProductCompare.unshift(productCompare);
+        },
+
+        removeFromCompare(state, action) {
+            state.listProductCompare.splice(
+                state.listProductCompare.findIndex((item) => item.id === action.payload),
+                1,
+            );
         },
     },
 });
