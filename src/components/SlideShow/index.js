@@ -53,7 +53,9 @@ function SlideShow() {
                                 <Link to="/products">Shop Now</Link>
                             </div>
                             <div className="right">
-                                <img src={obj.img} alt={obj.alt} />
+                                <div className="right-container-img">
+                                    <img src={obj.img} alt={obj.alt} className="slider-img" />
+                                </div>
                             </div>
                         </div>
                     </div>

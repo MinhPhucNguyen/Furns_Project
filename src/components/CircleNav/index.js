@@ -7,6 +7,7 @@ import living from '../../images/living.png';
 import dining from '../../images/dining.png';
 import lounge from '../../images/lounge.png';
 import officeChair from '../../images/living.png';
+import ScrollContainer from 'react-indiana-drag-scroll';
 
 export const dataCircle = [
     {
@@ -55,22 +56,24 @@ function CircleNav() {
         <div className="circles-nav">
             <div className="container">
                 <div className="item">
-                    {dataCircle.map((obj, index) => (
-                        <div key={index} className="circles">
-                            <Link
-                                to={obj.path}
-                                className="circle-item"
-                                onClick={() => {
-                                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-                                }}
-                            >
-                                <div className="icon">
-                                    <img src={obj.src} alt={obj.alt} />
-                                </div>
-                                <h4 className="circle-title">{obj.title}</h4>
-                            </Link>
-                        </div>
-                    ))}
+                    <ScrollContainer className="circles-nav-container">
+                        {dataCircle.map((obj, index) => (
+                            <div key={index} className="circles">
+                                <Link
+                                    to={obj.path}
+                                    className="circle-item"
+                                    onClick={() => {
+                                        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                                    }}
+                                >
+                                    <div className="icon">
+                                        <img src={obj.src} alt={obj.alt} />
+                                    </div>
+                                    <h4 className="circle-title">{obj.title}</h4>
+                                </Link>
+                            </div>
+                        ))}
+                    </ScrollContainer>
                 </div>
             </div>
         </div>

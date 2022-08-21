@@ -74,8 +74,11 @@
                     flex: 6;
                     text-align: center;
 
-                    .img {
-                        object-fit: cover;
+                    .right-container-img {
+                        .slider-img {
+                            width: 100%;
+                            object-fit: cover;
+                        }
                     }
                 }
 
@@ -143,6 +146,47 @@
             &.active {
                 background-color: $orangeColor;
                 border-color: $orangeColor;
+            }
+        }
+    }
+}
+
+//For Mobile
+@media only screen and (max-width: 740px) {
+    .works {
+        height: 680px;
+        .slider {
+            .container {
+                .item {
+                    width: 100vw;
+                    height: 100%;
+                    flex-direction: column-reverse;
+
+                    .left {
+                        h2 {
+                            font-size: 32px;
+                        }
+
+                        a {
+                            margin-top: 18px;
+                            padding: 10px 25px;
+                        }
+                    }
+
+                    .right {
+                        width: 100%;
+                        display: inline-block;
+                        .right-container-img {
+                            margin-top: 50px;
+
+                            .slider-img {
+                                width: 300px;
+                                height: 250px;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

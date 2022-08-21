@@ -105,6 +105,14 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
                     <span>{percentSale}</span>
                 </div>
                 <div className={'status ' + (status === 'Available' ? 'active' : '')}>{status}</div>
+
+                <div className="name-price">
+                    <h2 className="name">{nameProduct}</h2>
+                    <div className="price">
+                        <span className="old-price">{oldPrice}</span>
+                        <span className="new-price">{newPrice}</span>
+                    </div>
+                </div>
                 <div className="action">
                     <div className="btn-action" onClick={handleWithWishlist}>
                         {reIcon ? <FontAwesomeIcon icon={faTrashCan} /> : <FontAwesomeIcon icon={faHeart} />}
@@ -114,13 +122,6 @@ function Product({ id, nameProduct, img, alt, percentSale, status, chooseBtn, ol
                     </div>
                     <div className="btn-action" onClick={handleAddtoCompare}>
                         {reIconCompare ? <FontAwesomeIcon icon={faTrashCan} /> : <FontAwesomeIcon icon={faRepeat} />}
-                    </div>
-                </div>
-                <div className="name-price">
-                    <h2 className="name">{nameProduct}</h2>
-                    <div className="price">
-                        <span className="old-price">{oldPrice}</span>
-                        <span className="new-price">{newPrice}</span>
                     </div>
                 </div>
             </div>

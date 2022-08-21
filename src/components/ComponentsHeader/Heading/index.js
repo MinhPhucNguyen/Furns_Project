@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../../../images/75.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faUser, faBagShopping, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import {
+    faMagnifyingGlass,
+    faUser,
+    faBagShopping,
+    faShoppingCart,
+    faBars,
+    faGear,
+} from '@fortawesome/free-solid-svg-icons';
 import ProductinCartModal from './ProductinCartModal';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { signOut } from 'firebase/auth';
@@ -114,15 +121,23 @@ function Heading() {
         <>
             <div className="heading">
                 <div className="container">
-                    <div className="logo">
+                    <div className="menu-icon">
+                        <FontAwesomeIcon icon={faBars} />
+                    </div>
+                    <div className="logo-furns">
                         <Link to="/">
                             <img src={logo} alt={logo}></img>
                         </Link>
                     </div>
+
                     <div className="right">
                         <div className="search-icon" onClick={clickOpenModalSearch}>
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </div>
+                        <div className="setting-icon">
+                            <FontAwesomeIcon icon={faGear} />
+                        </div>
+
                         <div className="user-icon" onClick={clickOpenMenuUser}>
                             <FontAwesomeIcon icon={faUser} className="icon" />
                             {menuOpenUser && (
