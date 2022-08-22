@@ -8,10 +8,10 @@ function LoungeProducts() {
     const filterOfficeTableArr = [...Products].filter((obj) => obj.nameProduct.match(/table/i));
 
     return (
-        <div className="lounge-products">
-            <div className="lounge-products-heading">
+        <div className="office-table-products">
+            <div className="office-table-products-heading">
                 <div className="container">
-                    <h2 className="lounge-products-title">OFFICE TABLE</h2>
+                    <h2 className="office-table-products-title">OFFICE TABLE</h2>
                     <span>
                         <Link to={'/'}>HOME</Link>
                     </span>

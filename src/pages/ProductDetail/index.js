@@ -10,14 +10,16 @@ import Product from '../../components/OurProducts/Product';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../UserPages/CartPage/CartSlice';
 import { wishlistActions } from '../UserPages/WishlistPage/WishListSlice';
+import { compareActions } from '../UserPages/ComparePage/CompareSlice';
 
 function ProductDetail() {
     const dispatch = useDispatch();
     const { idProduct } = useParams();
-    const productDetail = Products.find((item) => item.id === parseInt(idProduct));
     const [clickChangeControl, setClickChangeControl] = useState(true);
-    const [renameBtn, setRenameBtn] = useState(false);
+    const [renameBtnWishlist, setRenameBtnWishlist] = useState(false);
+    const [renameBtnCompare, setRenameBtnCompare] = useState(false);
     let [quantityProduct, setQuantityProduct] = useState(1);
+    const productDetail = Products.find((item) => item.id === parseInt(idProduct));
 
     const newProductDetail = { ...productDetail, quantity: quantityProduct };
 
@@ -34,12 +36,22 @@ function ProductDetail() {
     };
 
     const handleClickAddtoWishlist = () => {
-        if (renameBtn === false) {
+        if (renameBtnWishlist === false) {
             dispatch(wishlistActions.addtoWishlist(productDetail));
-            setRenameBtn(true);
+            setRenameBtnWishlist(true);
         } else {
             dispatch(wishlistActions.removeFromWishlist(productDetail));
-            setRenameBtn(false);
+            setRenameBtnWishlist(false);
+        }
+    };
+
+    const handleClickAddtoCompare = () => {
+        if (renameBtnCompare === false) {
+            dispatch(compareActions.addtoCompare(productDetail));
+            setRenameBtnCompare(true);
+        } else {
+            dispatch(compareActions.removeFromCompare(productDetail.id));
+            setRenameBtnCompare(false);
         }
     };
 
@@ -131,11 +143,11 @@ function ProductDetail() {
                         <div className="wishlist-compare-btn">
                             <div className="wishlist-btn" onClick={handleClickAddtoWishlist}>
                                 <FontAwesomeIcon icon={faHeart} className="icon" />
-                                {renameBtn ? 'Remove from Wishlist' : 'Add to Wishlist'}
+                                {renameBtnWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
                             </div>
-                            <div className="compare-btn">
+                            <div className="compare-btn" onClick={handleClickAddtoCompare}>
                                 <FontAwesomeIcon icon={faCodeCompare} className="icon" />
-                                Add to Compare
+                                {renameBtnCompare ? 'Remove from Compare' : ' Add to Compare'}
                             </div>
                         </div>
                         <div className="share-media">

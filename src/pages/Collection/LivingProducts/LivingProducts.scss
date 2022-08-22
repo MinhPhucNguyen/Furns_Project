@@ -30,3 +30,18 @@
         }
     }
 }
+
+@media only screen and (max-width: 740px) {
+    .living-products {
+        margin-top: 67px;
+        .living-products-heading {
+            padding: 40px 0;
+            margin-bottom: 60px;
+            .container {
+                .living-products-title {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

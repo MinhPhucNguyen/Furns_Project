@@ -8,10 +8,10 @@ function HospitalUtility() {
     const filterHospitalUtilityArr = [...Products].filter((obj) => obj.nameProduct.match(/wheelchair/i));
 
     return (
-        <div className="lounge-products">
-            <div className="lounge-products-heading">
+        <div className="hospital-utility-products">
+            <div className="hospital-utility-products-heading">
                 <div className="container">
-                    <h2 className="lounge-products-title">HOSPITAL UTILITY</h2>
+                    <h2 className="hospital-utility-products-title">HOSPITAL UTILITY</h2>
                     <span>
                         <Link to={'/'}>HOME</Link>
                     </span>

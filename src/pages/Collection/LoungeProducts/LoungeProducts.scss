@@ -30,3 +30,18 @@
         }
     }
 }
+
+@media only screen and (max-width: 740px) {
+    .lounge-products {
+        margin-top: 67px;
+        .lounge-products-heading {
+            padding: 40px 0;
+            margin-bottom: 60px;
+            .container {
+                .lounge-products-title {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

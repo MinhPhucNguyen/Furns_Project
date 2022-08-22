@@ -473,3 +473,90 @@
         }
     }
 }
+
+@media only screen and (max-width: 740px) {
+    .header-page-route {
+        margin-top: 67px;
+        .header-page-route-container {
+            padding: 60px 0;
+            margin-bottom: 60px;
+            .container {
+                width: 100%;
+                margin: 0;
+
+                .header-page-route-title {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-size: 20px;
+                }
+            }
+        }
+        .product-detail {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            .product-detail-row-1 {
+                flex-direction: column;
+                margin: 0;
+
+                .product-info-right {
+                    .sku,
+                    .name-of-product {
+                        margin: unset;
+                    }
+
+                    .name-of-product {
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .product-detail-row-2 {
+                padding: 15px;
+
+                .description-reviews-control {
+                    padding: 20px;
+                    .reviews {
+                        flex-direction: column;
+
+                        .reviews-left {
+                            .user-review {
+                                flex-direction: column;
+                                .review-img {
+                                    width: 100%;
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+
+                        .reviews-right {
+                            margin-top: 30px;
+
+                            .form {
+                                .your-info {
+                                    flex-direction: column;
+                                    div {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .product-detail-row-3 {
+                margin-top: 30px;
+                padding: 0 15px;
+                .related-product {
+                    .related-product-title {
+                        width: 100%;
+                        padding: 0 15px;
+                        margin-bottom: initial;
+                    }
+                }
+            }
+        }
+    }
+} ;

@@ -38,3 +38,13 @@
         overflow-x: auto;
     }
 }
+
+@media only screen and (max-width: 740px) {
+    .header-page-route {
+        .main-content {
+            width: 100%;
+            margin: 0;
+            padding: 0 30px;
+        }
+    }
+}
