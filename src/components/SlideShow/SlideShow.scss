@@ -154,8 +154,20 @@
 //For Mobile
 @media only screen and (max-width: 740px) {
     .works {
-        height: 680px;
+        margin-top: 67px;
+        .arrow {
+            opacity: 1;
+
+            &.arrow-left {
+                left: 15px;
+            }
+
+            &.arrow-right {
+                right: 15px;
+            }
+        }
         .slider {
+            padding: 50px 0;
             .container {
                 .item {
                     width: 100vw;

@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.heading {
+.heading-bar {
     padding: 30px 0;
     z-index: 999;
     background-color: white;
@@ -408,9 +408,13 @@
 
 //For Mobile
 @media only screen and (max-width: 740px) {
-    .heading {
+    .heading-bar {
         width: 100%;
         padding: 15px 0;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        border-bottom: 1px solid $border;
 
         .container {
             width: 100%;

@@ -13,14 +13,14 @@
         opacity: 1;
     }
 
-    &:hover .info-product .product-image .choose {
-        opacity: 1;
-        transform: translateY(-60px);
-    }
-
     &:hover .info-product .action .btn-action:last-child,
     &:hover .info-product .action .btn-action:nth-child(2) {
         opacity: 1;
+    }
+
+    &:hover .info-product .product-image .choose {
+        opacity: 1;
+        transform: translateY(-60px);
     }
 
     .info-product {
@@ -176,8 +176,13 @@
         padding: 0 5px;
         width: 50%;
 
+        :hover > .product-image > a > img {
+            transform: rotate(0deg);
+        }
+
         &:hover .info-product .product-image .choose {
             opacity: 1;
+            transform: translateY(84px);
         }
 
         .info-product {
@@ -209,6 +214,10 @@
                     line-height: 34px;
                     opacity: 1;
 
+                    &:hover {
+                        color: white;
+                    }
+
                     span {
                         margin-left: 10px;
                     }
@@ -216,6 +225,7 @@
                     &.disable {
                         background-color: $orangeColor;
                         opacity: 0.5;
+                        transform: translateY(84px);
                     }
                 }
             }

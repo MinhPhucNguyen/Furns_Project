@@ -29,10 +29,19 @@
             }
         }
     }
-
-    .all-hospital-bed-product {
-        width: 80%;
-        padding: 0 15px;
-        margin: 0 auto;
-    }
 }
+
+@media only screen and (max-width: 740px) {
+    .hospital-bed-products {
+        margin-top: 67px;
+        .hospital-bed-products-heading {
+            padding: 40px 0;
+            margin-bottom: 60px;
+            .container {
+                .hospital-bed-products-title {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+} ;

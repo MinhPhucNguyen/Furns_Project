@@ -167,3 +167,64 @@
         }
     }
 }
+
+@media only screen and (max-width: 740px) {
+    .footer {
+        margin-top: 60px;
+        padding: 60px 0;
+        .footer-container {
+            width: 100%;
+
+            .footer-row {
+                flex-direction: column;
+                flex-wrap: wrap;
+
+                .about-us,
+                .information,
+                .my-account,
+                .newsletter {
+                    padding: 0;
+                    margin-bottom: 30px;
+
+                    h4 {
+                        letter-spacing: 2px;
+                    }
+                }
+
+                .about-us {
+                    .about {
+                        .about-icon {
+                            li {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+
+                .information {
+                    .information-container {
+                        .information-list {
+                            li {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+
+                .my-account {
+                    .myaccount-container {
+                        .myaccount-list {
+                            li {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+
+                .newsletter {
+                    width: 100%;
+                }
+            }
+        }
+    }
+} ;

@@ -21,9 +21,7 @@ function OfficeChair() {
                     <span>/ OFFICE CHAIR</span>
                 </div>
             </div>
-            <div className="all-office-chair-product">
-                <SortByControl filterOfficeChairArr={filterOfficeChairArr} />
-            </div>
+            <SortByControl filterOfficeChairArr={filterOfficeChairArr} />
         </div>
     );
 }

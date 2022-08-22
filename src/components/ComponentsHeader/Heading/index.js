@@ -119,7 +119,7 @@ function Heading() {
 
     return (
         <>
-            <div className="heading">
+            <div className="heading-bar">
                 <div className="container">
                     <div className="menu-icon">
                         <FontAwesomeIcon icon={faBars} />

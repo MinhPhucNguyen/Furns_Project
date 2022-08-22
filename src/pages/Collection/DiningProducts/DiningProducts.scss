@@ -29,10 +29,19 @@
             }
         }
     }
-
-    .all-dining-product {
-        width: 80%;
-        padding: 0 15px;
-        margin: 0 auto;
-    }
 }
+
+@media only screen and (max-width: 740px) {
+    .dining-products {
+        margin-top: 67px;
+        .dining-products-heading {
+            padding: 40px 0;
+            margin-bottom: 60px;
+            .container {
+                .dining-products-title {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+} ;

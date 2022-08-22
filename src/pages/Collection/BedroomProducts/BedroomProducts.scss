@@ -29,10 +29,19 @@
             }
         }
     }
-
-    .all-bedroom-product {
-        width: 80%;
-        padding: 0 15px;
-        margin: 0 auto;
-    }
 }
+
+@media only screen and (max-width: 740px) {
+    .bedroom-products {
+        margin-top: 67px;
+        .bedroom-products-heading {
+            padding: 40px 0;
+            margin-bottom: 60px;
+            .container {
+                .bedroom-products-title {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+} ;

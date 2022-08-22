@@ -21,9 +21,7 @@ function LoungeProducts() {
                     <span>/ LOUNGE</span>
                 </div>
             </div>
-            <div className="all-lounge-product">
-                <SortByControl filterLoungeArr={filterLoungeArr} />
-            </div>
+            <SortByControl filterLoungeArr={filterLoungeArr} />
         </div>
     );
 }

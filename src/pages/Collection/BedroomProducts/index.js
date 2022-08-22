@@ -21,9 +21,7 @@ function BedroomProducts() {
                     <span>/ BEDROOM</span>
                 </div>
             </div>
-            <div className="all-bedroom-product">
-                <SortByControl filterBedroomArr={filterBedroomArr} />
-            </div>
+            <SortByControl filterBedroomArr={filterBedroomArr} />
         </div>
     );
 }

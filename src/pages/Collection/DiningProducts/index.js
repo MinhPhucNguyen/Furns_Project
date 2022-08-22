@@ -21,9 +21,7 @@ function DiningProducts() {
                     <span>/ DINING</span>
                 </div>
             </div>
-            <div className="all-dining-product">
-                <SortByControl filterDiningArr={filterDiningArr} />
-            </div>
+            <SortByControl filterDiningArr={filterDiningArr} />
         </div>
     );
 }

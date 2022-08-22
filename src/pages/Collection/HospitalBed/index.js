@@ -21,9 +21,7 @@ function HospitalBed() {
                     <span>/ HOSPITAL BED</span>
                 </div>
             </div>
-            <div className="all-hospital-bed-product">
-                <SortByControl filterHospitalBedArr={filterHospitalBedArr} />
-            </div>
+            <SortByControl filterHospitalBedArr={filterHospitalBedArr} />
         </div>
     );
 }

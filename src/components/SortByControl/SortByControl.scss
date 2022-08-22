@@ -1,6 +1,9 @@
 @import '../../styles/variables.scss';
 
 .all-product {
+    width: 80%;
+    padding: 0 15px;
+    margin: 0 auto;
     .product-sort {
         font-size: 14px;
         background-color: $backgroudColor;
@@ -130,6 +133,26 @@
             margin-top: 20px;
             font-size: 20px;
             font-weight: 500;
+        }
+    }
+}
+
+//For Mobile
+@media only screen and (max-width: 740px) {
+    .all-product {
+        width: 100%;
+        .product-sort {
+            flex-direction: column;
+            padding: 15px 0;
+            height: unset;
+            margin: 0;
+            .quantity-product {
+                margin-bottom: 10px;
+            }
+        }
+
+        .products-relevance {
+            margin: 0 -15px;
         }
     }
 }

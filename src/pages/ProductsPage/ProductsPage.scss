@@ -29,10 +29,19 @@
             }
         }
     }
-
-    .all-product {
-        width: 80%;
-        padding: 0 15px;
-        margin: 0 auto;
-    }
 }
+
+@media only screen and (max-width: 740px) {
+    .products-page {
+        margin-top: 67px;
+        .products-heading {
+            padding: 40px 0;
+            margin-bottom: 60px;
+            .container {
+                .products-page-title {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+} ;

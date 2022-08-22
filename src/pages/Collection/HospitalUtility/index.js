@@ -21,9 +21,7 @@ function HospitalUtility() {
                     <span>/ HOSPITAL UTILITY</span>
                 </div>
             </div>
-            <div className="all-lounge-product">
-                <SortByControl filterHospitalUtilityArr={filterHospitalUtilityArr} />
-            </div>
+            <SortByControl filterHospitalUtilityArr={filterHospitalUtilityArr} />
         </div>
     );
 }
