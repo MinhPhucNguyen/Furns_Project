@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+
+//For Desktop
+@media only screen and (min-width: 1024px) {
+    .user_navbar {
+        display: none;
+    }
+}
+
+//For Mobile
+@media only screen and (max-width: 740px) {
+    .user_navbar {
+        position: fixed;
+        width: 100%;
+        background-color: $primaryColor;
+        left: 0;
+        bottom: 0;
+        z-index: 999;
+        box-shadow: rgb(0 0 0 / 30%) 0px 0px 10px 0px;
+        .user_navbar-container {
+            padding: 0 15px;
+
+            .user_navbar-list {
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .user_navbar-item {
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 10px 0;
+
+                        span {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

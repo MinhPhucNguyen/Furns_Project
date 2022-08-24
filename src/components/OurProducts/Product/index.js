@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Product.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUpRightFromSquare, faRepeat, faCartShopping, faTrash, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faUpRightFromSquare, faRepeat, faCartShopping, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../pages/UserPages/CartPage/CartSlice';

@@ -147,3 +147,14 @@
         font-weight: 500;
     }
 }
+
+@media only screen and (max-width: 740px) {
+    .non-products {
+        .information {
+            p {
+                font-size: 12px;
+                text-align: center;
+            }
+        }
+    }
+}

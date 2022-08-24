@@ -16,6 +16,8 @@ import ProductinCartModal from './ProductinCartModal';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../firebase/firebaseConfig';
+import SidebarSetting from './SidebarSetting';
+import SidebarMenu from './SidebarMenu';
 
 const userItem = [
     {
@@ -74,16 +76,24 @@ function Heading() {
     const [modalSearchOpen, setModalSearchOpen] = useState(false);
     const [modalCartOpen, setModalCartOpen] = useState(false);
     const [userList, setUserList] = useState(userItem);
+    const [sidebarSettingOpen, setSidebarSettingOpen] = useState(false);
+    const [sidebarMenuOpen, setSidebarMenuOpen] = useState(false);
+
     const quantity = useSelector((state) => state.cart.totalQuantity);
     const productsListinCart = useSelector((state) => state.cart.productsList);
 
     useEffect(() => {
-        if (modalCartOpen === true || modalSearchOpen === true) {
+        if (
+            modalCartOpen === true ||
+            modalSearchOpen === true ||
+            sidebarSettingOpen === true ||
+            sidebarMenuOpen === true
+        ) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
         }
-    }, [modalCartOpen, modalSearchOpen]);
+    }, [modalCartOpen, modalSearchOpen, sidebarSettingOpen, sidebarMenuOpen]);
 
     const user = useContext(AuthContext);
 
@@ -102,11 +112,19 @@ function Heading() {
     };
 
     const clickOpenModalSearch = () => {
-        setModalSearchOpen((e) => !e);
+        setModalSearchOpen(!modalSearchOpen);
+    };
+
+    const clickOpenSidebarSetting = () => {
+        setSidebarSettingOpen(!sidebarSettingOpen);
+    };
+
+    const clickOpenSidebarMenu = () => {
+        setSidebarMenuOpen(!sidebarMenuOpen);
     };
 
     const clickOpenModalCart = () => {
-        setModalCartOpen((e) => !e);
+        setModalCartOpen(!modalCartOpen);
     };
 
     const handleLogout = () => {
@@ -121,7 +139,7 @@ function Heading() {
         <>
             <div className="heading-bar">
                 <div className="container">
-                    <div className="menu-icon">
+                    <div className="menu-icon" onClick={clickOpenSidebarMenu}>
                         <FontAwesomeIcon icon={faBars} />
                     </div>
                     <div className="logo-furns">
@@ -134,7 +152,7 @@ function Heading() {
                         <div className="search-icon" onClick={clickOpenModalSearch}>
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </div>
-                        <div className="setting-icon">
+                        <div className="setting-icon" onClick={clickOpenSidebarSetting}>
                             <FontAwesomeIcon icon={faGear} />
                         </div>
 
@@ -247,6 +265,9 @@ function Heading() {
                     </div>
                 </div>
             )}
+
+            {sidebarSettingOpen && <SidebarSetting setSidebarSettingOpen={setSidebarSettingOpen} />}
+            {sidebarMenuOpen && <SidebarMenu setSidebarMenuOpen={setSidebarMenuOpen} />}
         </>
     );
 }

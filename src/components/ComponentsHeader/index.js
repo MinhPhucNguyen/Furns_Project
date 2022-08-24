@@ -2,6 +2,7 @@ import React from 'react';
 import SubHeading from './SubHeading';
 import Heading from './Heading';
 import Navbar from './Navbar';
+import UserNavBar from '../UserNavBar';
 
 function ComponentsHeader() {
     return (
@@ -9,6 +10,7 @@ function ComponentsHeader() {
             <SubHeading />
             <Heading />
             <Navbar />
+            <UserNavBar />
         </>
     );
 }
