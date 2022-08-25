@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-function ProductinCartModal({ id, img, alt, nameProduct, newPrice, quantity, clickOpenModalCart }) {
+function ProductinCartModal({ id, img, alt, nameProduct, newPrice, quantity, setModalCartOpen }) {
     const dispatch = useDispatch();
 
     const handleDecreaseQuantity = () => {
@@ -30,10 +30,8 @@ function ProductinCartModal({ id, img, alt, nameProduct, newPrice, quantity, cli
             <Link
                 to={`/product/${id}`}
                 className="image-of-product"
-                onClick={(e) => {
-                    if (e.target === e.currentTarget) {
-                        clickOpenModalCart();
-                    }
+                onClick={() => {
+                    setModalCartOpen(false);
                 }}
             >
                 <img src={img} alt={alt} />
@@ -44,7 +42,7 @@ function ProductinCartModal({ id, img, alt, nameProduct, newPrice, quantity, cli
                         to={`/product/${id}`}
                         onClick={(e) => {
                             if (e.target === e.currentTarget) {
-                                clickOpenModalCart();
+                                setModalCartOpen(false);
                             }
                         }}
                     >

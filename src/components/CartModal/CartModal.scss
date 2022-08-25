@@ -1,0 +1,123 @@
+@import '../../styles/variables.scss';
+
+.modal-cart {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+
+    .contain {
+        background-color: white;
+        height: 100%;
+        max-width: 385px;
+        margin-left: auto;
+        position: relative;
+        z-index: 13;
+        display: flex;
+        flex-direction: column;
+
+        animation: slideOpenModalCart 0.25s ease-out;
+
+        @keyframes slideOpenModalCart {
+            from {
+                right: -385px;
+            }
+            to {
+                right: 0;
+            }
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid $border;
+
+            & > .close-box {
+                margin: 0;
+            }
+        }
+
+        .body {
+            height: 100vh;
+            text-align: center;
+            height: calc(100% - 160px);
+            position: relative;
+            &.scroll-bar {
+                overflow-y: scroll;
+
+                &::-webkit-scrollbar {
+                    width: 5px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: #888;
+                }
+
+                &::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                }
+            }
+
+            div {
+                & .body-icon {
+                    margin-top: 150px;
+                    font-size: 100px;
+                    color: $orangeColor;
+                }
+
+                h3 {
+                    margin-top: 30px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .leg {
+            width: 100%;
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+
+            a {
+                width: 100%;
+                background-color: rgb(255, 112, 4);
+                text-decoration: none;
+                padding: 17px 36px;
+                padding-left: 10px;
+                display: inline-block;
+                position: relative;
+                border-radius: 3px;
+                color: white;
+                transition: 0.5s;
+
+                &:hover {
+                    background-color: rgb(47, 51, 58);
+                }
+
+                & > span {
+                    position: absolute;
+                    right: 10px;
+                    padding: 10px;
+                    height: 37px;
+                    background-color: white;
+                    border-radius: 3px;
+                    display: flex;
+                    align-items: center;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: $orangeColor;
+                }
+            }
+        }
+    }
+}

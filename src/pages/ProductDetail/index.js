@@ -22,6 +22,7 @@ function ProductDetail() {
     const productDetail = Products.find((item) => item.id === parseInt(idProduct));
 
     const newProductDetail = { ...productDetail, quantity: quantityProduct };
+    console.log(newProductDetail);
 
     //Related Product
     const relatedProductsArr = Products.filter(

@@ -115,16 +115,16 @@ function Heading() {
         setModalSearchOpen(!modalSearchOpen);
     };
 
+    const clickOpenModalCart = () => {
+        setModalCartOpen(!modalCartOpen);
+    };
+
     const clickOpenSidebarSetting = () => {
         setSidebarSettingOpen(!sidebarSettingOpen);
     };
 
     const clickOpenSidebarMenu = () => {
         setSidebarMenuOpen(!sidebarMenuOpen);
-    };
-
-    const clickOpenModalCart = () => {
-        setModalCartOpen(!modalCartOpen);
     };
 
     const handleLogout = () => {
@@ -240,7 +240,7 @@ function Heading() {
                             {productsListinCart.length > 0 ? (
                                 productsListinCart.map((item) => (
                                     <ProductinCartModal
-                                        clickOpenModalCart={clickOpenModalCart}
+                                        setModalCartOpen={setModalCartOpen}
                                         key={item.id}
                                         id={item.id}
                                         img={item.img}

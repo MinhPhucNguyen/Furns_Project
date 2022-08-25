@@ -162,5 +162,19 @@
 @media only screen and (max-width: 740px) {
     .login {
         width: 100%;
+
+        .form-login {
+            .other-btn2 {
+                flex-direction: column;
+                .btn-left {
+                    margin-bottom: 20px;
+                }
+
+                .btn-left,
+                .btn-right {
+                    width: 100%;
+                }
+            }
+        }
     }
 }

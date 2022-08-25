@@ -4,46 +4,51 @@
     width: 100%;
     display: block;
 
-    table {
+    .table-product-container {
         width: 100%;
-        border: 1px solid $border;
-        border-collapse: collapse;
         margin-bottom: 25px;
+        height: 100%;
 
-        thead {
-            tr {
-                border-collapse: collapse;
+        table {
+            width: 100%;
+            border: 1px solid $border;
+            border-collapse: collapse;
 
-                .info-product {
-                    font-size: 14px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    background-color: $border;
-                    border: none;
-                    padding: 21px 45px;
+            thead {
+                tr {
+                    border-collapse: collapse;
+
+                    .info-product {
+                        font-size: 14px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        background-color: $border;
+                        border: none;
+                        padding: 21px 45px;
+                    }
                 }
             }
-        }
 
-        tbody {
-            tr {
-                td {
-                    padding: 14px;
-                    border-top: 1px solid $border;
+            tbody {
+                tr {
+                    td {
+                        padding: 14px;
+                        border-top: 1px solid $border;
 
-                    .total-price {
-                        display: flex;
-                        justify-content: flex-end;
-                        margin-right: 35px;
-                        font-size: 16px;
-                        font-weight: 600;
-                        color: $orangeColor;
+                        .total-price {
+                            display: flex;
+                            justify-content: flex-end;
+                            margin-right: 35px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: $orangeColor;
 
-                        > span {
-                            width: 120px;
-                            margin-left: 35px;
-                            color: $mainColor;
-                            text-align: center;
+                            > span {
+                                width: 120px;
+                                margin-left: 35px;
+                                color: $mainColor;
+                                text-align: center;
+                            }
                         }
                     }
                 }
@@ -116,12 +121,14 @@
                 }
             }
 
-            .checkout-btn {
-                margin-left: 35px;
-                background-color: rgb(47, 51, 58);
+            a {
+                .checkout-btn {
+                    margin-left: 35px;
+                    background-color: rgb(47, 51, 58);
 
-                &:hover {
-                    background-color: $orangeColor;
+                    &:hover {
+                        background-color: $orangeColor;
+                    }
                 }
             }
         }
@@ -149,6 +156,62 @@
 }
 
 @media only screen and (max-width: 740px) {
+    .table-product {
+        .table-product-container {
+            width: 100%;
+            overflow: auto;
+            table {
+                margin-bottom: 0;
+            }
+        }
+
+        .control-cart {
+            flex-direction: column;
+
+            .left {
+                width: 100%;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+                .apply-coupon-btn {
+                    width: 100%;
+                    margin-bottom: 30px;
+                    height: 48px;
+                    border-radius: 3px;
+                }
+            }
+
+            .right {
+                width: 100%;
+                display: flex;
+
+                .clear-cart-btn,
+                .checkout-btn {
+                    width: 50%;
+                    padding: 12px 10px;
+                }
+
+                .clear-cart-btn {
+                }
+
+                a {
+                    width: 80%;
+                    margin-right: 30px;
+                    .checkout-btn {
+                        width: 100%;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+
     .non-products {
         .information {
             p {

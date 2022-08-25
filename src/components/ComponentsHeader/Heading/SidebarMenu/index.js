@@ -1,5 +1,5 @@
 import './SidebarMenu.scss';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import logo from '../../../../images/75.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -82,7 +82,7 @@ const sideBarNavMenu = [
 ];
 
 function SidebarMenu({ setSidebarMenuOpen }) {
-    const [itemNavID, setItemNavID] = useState(3);
+    const [itemNavID, setItemNavID] = useState(0);
     const [itemNavbarOpen, setItemNavbarOpen] = useState(false);
 
     const handleMenuSideBar = (item) => {
@@ -91,14 +91,8 @@ function SidebarMenu({ setSidebarMenuOpen }) {
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         } else {
             setItemNavID(item.id);
-            if (item.id === itemNavID) {
-                setItemNavbarOpen((prev) => !prev);
-            }
         }
     };
-
-    console.log(itemNavID);
-    console.log(itemNavbarOpen);
 
     return (
         <div
@@ -142,7 +136,7 @@ function SidebarMenu({ setSidebarMenuOpen }) {
                                     )}
                                 </div>
 
-                                {itemNavbarOpen && itemNavID === item.id ? (
+                                {item.id === itemNavID ? (
                                     <ul className="item-nav">
                                         {item.navItem.map((obj) => (
                                             <li

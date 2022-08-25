@@ -56,40 +56,43 @@ function CartPage() {
         <HeaderPageRoute>
             {ProductsListinCart.length > 0 ? (
                 <div className="table-product">
-                    <table>
-                        <thead>
-                            <tr>
-                                {headTable.map((item) => (
-                                    <th key={item.id} className="info-product">
-                                        {item.display}
-                                    </th>
+                    <div className="table-product-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    {headTable.map((item) => (
+                                        <th key={item.id} className="info-product">
+                                            {item.display}
+                                        </th>
+                                    ))}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {console.log(ProductsListinCart)}
+                                {ProductsListinCart.map((item) => (
+                                    <ProductInCart
+                                        key={item.id}
+                                        id={item.id}
+                                        img={item.img}
+                                        alt={item.alt}
+                                        nameProduct={item.name}
+                                        newPrice={item.price}
+                                        quantity={item.quantity}
+                                        totalPrice={item.totalPrice}
+                                    />
                                 ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {console.log(ProductsListinCart)}
-                            {ProductsListinCart.map((item) => (
-                                <ProductInCart
-                                    key={item.id}
-                                    id={item.id}
-                                    img={item.img}
-                                    alt={item.alt}
-                                    nameProduct={item.name}
-                                    newPrice={item.price}
-                                    quantity={item.quantity}
-                                    totalPrice={item.totalPrice}
-                                />
-                            ))}
 
-                            <tr>
-                                <td colSpan="6">
-                                    <div className="total-price">
-                                        Grand Total: <span>${total.toFixed(2)}</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <tr>
+                                    <td colSpan="6">
+                                        <div className="total-price">
+                                            Grand Total: <span>${total.toFixed(2)}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                     <div className="control-cart">
                         <div className="left">
                             <input type="text" placeholder="Enter your coupon code if you have one" />

@@ -4,23 +4,27 @@
     width: 100%;
     display: block;
 
-    table {
+    .table-product-container {
         width: 100%;
-        border: 1px solid $border;
-        border-collapse: collapse;
         margin-bottom: 25px;
+        height: 100%;
 
-        thead {
-            tr {
-                border-collapse: collapse;
+        table {
+            border: 1px solid $border;
+            border-collapse: collapse;
 
-                .info-product {
-                    font-size: 14px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    background-color: $border;
-                    border: none;
-                    padding: 21px 45px;
+            thead {
+                tr {
+                    border-collapse: collapse;
+
+                    .info-product {
+                        font-size: 14px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        background-color: $border;
+                        border: none;
+                        padding: 21px 45px;
+                    }
                 }
             }
         }

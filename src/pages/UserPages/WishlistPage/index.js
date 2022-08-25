@@ -37,32 +37,34 @@ function WishlistPage() {
         <HeaderPageRoute>
             {wishlistArr.length > 0 ? (
                 <div className="table-product">
-                    <table>
-                        <thead>
-                            <tr>
-                                {headTable.map((item) => (
-                                    <th key={item.id} className="info-product">
-                                        {item.display}
-                                    </th>
+                    <div className="table-product-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    {headTable.map((item) => (
+                                        <th key={item.id} className="info-product">
+                                            {item.display}
+                                        </th>
+                                    ))}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {wishlistArr.map((item) => (
+                                    <WishlistItem
+                                        key={item.id}
+                                        id={item.id}
+                                        img={item.img}
+                                        alt={item.alt}
+                                        nameProduct={item.name}
+                                        newPrice={item.price}
+                                        quantity={item.quantity}
+                                        total={item.totalPrice}
+                                        chooseBtn={item.chooseBtn}
+                                    />
                                 ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {wishlistArr.map((item) => (
-                                <WishlistItem
-                                    key={item.id}
-                                    id={item.id}
-                                    img={item.img}
-                                    alt={item.alt}
-                                    nameProduct={item.name}
-                                    newPrice={item.price}
-                                    quantity={item.quantity}
-                                    total={item.totalPrice}
-                                    chooseBtn={item.chooseBtn}
-                                />
-                            ))}
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             ) : (
                 <div className="non-products">
