@@ -40,9 +40,43 @@ const userNavbarList = [
     },
 ];
 
+const userNavbarList2 = [
+    {
+        id: 1,
+        icon: faHeart,
+        display: 'Wishlist',
+        path: '/wishlist',
+    },
+    {
+        id: 2,
+        icon: faRepeat,
+        display: 'Compare',
+        path: '/compare',
+    },
+    {
+        id: 3,
+        icon: faHouse,
+        display: 'Home',
+        path: '/',
+    },
+
+    {
+        id: 4,
+        icon: faCartShopping,
+        display: 'Cart',
+    },
+    {
+        id: 5,
+        icon: faUser,
+        display: 'Account',
+        path: '/account',
+    },
+];
+
 function UserNavBar() {
     const [modalCartOpen, setModalCartOpen] = useState(false);
     const user = useContext(AuthContext);
+    // console.log(user.currentUser);
 
     const handleClickUserNavbar = (item) => {
         if (item.path !== undefined) {
@@ -52,22 +86,16 @@ function UserNavBar() {
         }
     };
 
+    console.log(userNavbarList[userNavbarList.length - 1].path);
+
     return (
         <>
             <div className="user_navbar">
                 <div className="user_navbar-container">
                     <ul className="user_navbar-list">
-                        {userNavbarList.map((item) => (
+                        {(user.currentUser === undefined ? userNavbarList : userNavbarList2).map((item) => (
                             <li className="user_navbar-item" key={item.id} onClick={() => handleClickUserNavbar(item)}>
-                                <Link
-                                    to={
-                                        item.path !== undefined && item.path !== '/signin'
-                                            ? item.path
-                                            : user.currentUser !== undefined
-                                            ? (userNavbarList[userNavbarList.length - 1].path = '/account')
-                                            : (userNavbarList[userNavbarList.length - 1].path = '/signin')
-                                    }
-                                >
+                                <Link to={item.path !== undefined ? item.path : true}>
                                     <FontAwesomeIcon icon={item.icon} />
                                     <span>{item.display}</span>
                                 </Link>

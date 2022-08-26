@@ -10,7 +10,7 @@ import { compareActions } from './CompareSlice';
 function ComparePage() {
     const dispatch = useDispatch();
     const productCompare = useSelector((state) => state.compare.listProductCompare);
-    console.log(productCompare);
+    // console.log(productCompare);
 
     const clickAddtoCart = (id) => {
         const itemAddtoCart = productCompare.find((item) => item.id === id);
